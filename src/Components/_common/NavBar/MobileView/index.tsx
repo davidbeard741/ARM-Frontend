@@ -15,8 +15,8 @@ const MobileView = () => {
           <label>Home</label>
         </Link>
         <Link
-          to="/explore"
-          className={pathname === "/explore" ? styles.active : styles.card}
+          to="/create"
+          className={pathname === "/create" ? styles.active : styles.card}
         >
           <MdOutlineTravelExplore />
           <label>Create NFT</label>

@@ -15,7 +15,12 @@ const CreateNFT: FC = () => {
           <label>Create NFT</label>
           <div className={styles.nftWrapper}>
             <div className={styles.leftWrapper}>
-              <label className={styles.imgWrapper} form="inputimage">
+              <label
+                className={
+                  formik.values.files ? styles.imgWrapper2 : styles.imgWrapper
+                }
+                form="inputimage"
+              >
                 <input
                   type="file"
                   accept="image/*"
@@ -24,7 +29,6 @@ const CreateNFT: FC = () => {
                     if (ev?.target?.files)
                       formik.setFieldValue("files", ev?.target?.files[0]);
                   }}
-                  // {...formik.getFieldProps("files")}
                 />
                 <div className={styles.img}>
                   {formik.values.files ? (

@@ -21,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={5000}
         hideProgressBar={true}
         newestOnTop={false}
@@ -30,12 +30,12 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='light'
+        theme="light"
       />
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
-        <Route path='/explore' element={<Explore />} />
+        <Route path="/create" element={<Explore />} />
       </Routes>
       <Footer />
     </BrowserRouter>
