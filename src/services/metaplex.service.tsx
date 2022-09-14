@@ -5,6 +5,7 @@ import {
   toMetaplexFileFromBrowser,
 } from "@metaplex-foundation/js";
 import { Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
+import { toast } from "react-toastify";
 
 export const getUserNFTs = async (metaplex: Metaplex) => {
   let myNftsTask = await metaplex
@@ -36,7 +37,7 @@ export const createNFT = async (params: {
       image: await toMetaplexFileFromBrowser(params.metadata.files[0]),
     })
     .run();
-
+  toast.success("Uploading Metadata");
   // Ref: The Nft Mode: https://github.com/metaplex-foundation/js#the-nft-model
   const { nft } = await params.metaplex
     .nfts()
@@ -47,7 +48,7 @@ export const createNFT = async (params: {
       maxSupply: toBigNumber(1),
     })
     .run();
-
+  toast.success("NFT Created");
   // [Mock] Use following if active ".use(mockStorage())".
   // const fakeNft = await metaplex.storage().download(uri);
   // console.log('fakeNft =>', fakeNft.buffer.toString());

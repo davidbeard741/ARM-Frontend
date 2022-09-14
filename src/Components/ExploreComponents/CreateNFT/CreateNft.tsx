@@ -15,20 +15,20 @@ const CreateNFT: FC = () => {
           <label>Create NFT</label>
           <div className={styles.nftWrapper}>
             <div className={styles.leftWrapper}>
-              <label className={styles.imgWrapper} form="inputimage">
+              <label className={styles.imgWrapper} form='inputimage'>
                 <input
-                  type="file"
-                  accept="image/*"
-                  id="inputimage"
-                  onChange={(ev) => {
+                  type='file'
+                  accept='image/*'
+                  id='inputimage'
+                  onChange={ev => {
                     if (ev?.target?.files)
-                      formik.setFieldValue("files", ev?.target?.files[0]);
+                      formik.setFieldValue("files", ev?.target?.files);
                   }}
                   // {...formik.getFieldProps("files")}
                 />
                 <div className={styles.img}>
                   {formik.values.files ? (
-                    <img src={URL.createObjectURL(formik.values.files)} />
+                    <img src={URL.createObjectURL(formik.values.files[0])} />
                   ) : (
                     <>
                       <IoMdImages />
@@ -48,9 +48,9 @@ const CreateNFT: FC = () => {
                   <div className={styles.inputwrapper}>
                     <p>Name</p>
                     <Input
-                      type="text"
-                      Name="name"
-                      placeholder="Name"
+                      type='text'
+                      Name='name'
+                      placeholder='Name'
                       config={formik.getFieldProps("name")}
                     />
                     {formik.errors.name && formik.touched.name ? (
@@ -62,9 +62,9 @@ const CreateNFT: FC = () => {
                   <div className={styles.inputwrapper}>
                     <p>Symbol</p>
                     <Input
-                      type="text"
-                      Name="name"
-                      placeholder="Symbol"
+                      type='text'
+                      Name='name'
+                      placeholder='Symbol'
                       config={formik.getFieldProps("symbol")}
                     />
                     {formik.errors.symbol && formik.touched.symbol ? (
@@ -81,7 +81,7 @@ const CreateNFT: FC = () => {
                     <textarea
                       rows={10}
                       className={styles.textArea}
-                      placeholder="Description"
+                      placeholder='Description'
                       {...formik.getFieldProps("description")}
                     />
                     {formik.errors.description && formik.touched.description ? (
@@ -148,15 +148,15 @@ const CreateNFT: FC = () => {
               <div className={styles.createbtn}>
                 <div className={styles.btnActive}>
                   <Button
-                    Name="Create NFT"
-                    bgactive="#ffb718"
-                    borderHover="none"
-                    Coloractive="#fff"
-                    Colorhover="#ffb718"
-                    bghover="transparent"
-                    height="47px"
-                    lapheight="37px"
-                    type="submit"
+                    Name='Create NFT'
+                    bgactive='#ffb718'
+                    borderHover='none'
+                    Coloractive='#fff'
+                    Colorhover='#ffb718'
+                    bghover='transparent'
+                    height='47px'
+                    lapheight='37px'
+                    type='submit'
                   />
                 </div>
               </div>
