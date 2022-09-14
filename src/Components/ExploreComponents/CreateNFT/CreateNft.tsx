@@ -27,12 +27,12 @@ const CreateNFT: FC = () => {
                   id="inputimage"
                   onChange={(ev) => {
                     if (ev?.target?.files)
-                      formik.setFieldValue("files", ev?.target?.files[0]);
+                      formik.setFieldValue("files", ev?.target?.files);
                   }}
                 />
                 <div className={styles.img}>
                   {formik.values.files ? (
-                    <img src={URL.createObjectURL(formik.values.files)} />
+                    <img src={URL.createObjectURL(formik.values.files[0])} />
                   ) : (
                     <>
                       <IoMdImages />
