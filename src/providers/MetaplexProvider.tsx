@@ -21,7 +21,13 @@ export const MetaplexProvider: FC<Props> = ({ children }) => {
         //@ts-ignore
         walletAdapterIdentity(wallet.connected ? wallet : null)
       )
-      .use(bundlrStorage());
+      .use(
+        bundlrStorage({
+          address: "https://devnet.bundlr.network",
+          providerUrl: "https://api.devnet.solana.com",
+          timeout: 60000,
+        })
+      );
   }, [connection, wallet]);
 
   return (

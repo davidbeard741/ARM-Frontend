@@ -1,31 +1,37 @@
 import { FC } from "react";
+import { IoMdImages } from "react-icons/io";
 import { Button } from "../../_common/Button/Button";
 import Input from "../../_common/Input/input";
 import styles from "./nft.module.scss";
-import { IoMdImages } from "react-icons/io";
 import useNft from "./useNft";
 
 const CreateNFT: FC = () => {
   const { formik } = useNft();
+
   return (
     <>
-      <div className={styles.container}>
+      <form className={styles.container} onSubmit={formik.handleSubmit}>
         <div className={styles.wrapper}>
           <label>Create NFT</label>
           <div className={styles.nftWrapper}>
             <div className={styles.leftWrapper}>
               <label className={styles.imgWrapper} form="inputimage">
-                <input type="file" accept="image/*" id="inputimage" />
+                <input
+                  type="file"
+                  // accept='image/*'
+                  id="inputimage"
+                  {...formik.getFieldProps("files")}
+                />
                 <div className={styles.img}>
                   <IoMdImages />
                   <label>Drag or pinch to choose an Image</label>
                 </div>
               </label>
+              {formik.errors.files && formik.touched.files ? (
+                <div style={{ color: "#E5516B" }}>{formik.errors.files}</div>
+              ) : null}
             </div>
-            <form
-              className={styles.rightWrapper}
-              onSubmit={formik.handleSubmit}
-            >
+            <div className={styles.rightWrapper}>
               <h2>Basic Information</h2>
               <div className={styles.inputsfieldswrapper}>
                 <div className={styles.titleWrapper}>
@@ -80,20 +86,20 @@ const CreateNFT: FC = () => {
                   <label>Advanced Information</label>
                   <div className={styles.inputwrapper}>
                     <p>URL (External)</p>
-                    <Input type="text" Name="name" placeholder="URL" />
+                    <Input type='text' Name='name' placeholder='URL' />
                   </div>
                   <div className={styles.titleWrapper}>
                     <div className={styles.inputwrapper}>
                       <p>Collectible Group</p>
-                      <Input type="text" Name="name" placeholder="Group" />
+                      <Input type='text' Name='name' placeholder='Group' />
                     </div>
 
                     <div className={styles.inputwrapper}>
                       <p>Identifier Name</p>
                       <Input
-                        type="text"
-                        Name="name"
-                        placeholder="Identifier Name"
+                        type='text'
+                        Name='name'
+                        placeholder='Identifier Name'
                       />
                     </div>
                   </div>
@@ -104,12 +110,12 @@ const CreateNFT: FC = () => {
                   <div className={styles.inputs}>
                     <div className={styles.inputwrapper}>
                       <p>Attribute Name</p>
-                      <Input type="text" Name="name" placeholder="Name" />
+                      <Input type='text' Name='name' placeholder='Name' />
                     </div>
 
                     <div className={styles.inputwrapper}>
                       <p>Attribute value</p>
-                      <Input type="text" Name="name" placeholder="value" />
+                      <Input type='text' Name='name' placeholder='value' />
                     </div>
                   </div>
                   <div className={styles.btnWrapper}>
@@ -144,10 +150,10 @@ const CreateNFT: FC = () => {
                   />
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </>
   );
 };

@@ -15,13 +15,13 @@ function App() {
   const { metaplex } = useMetaplex();
   const wallet = useWallet();
 
-  useEffect(() => {
-    getUserNFTs(metaplex!);
-  }, []);
+  // useEffect(() => {
+  //   getUserNFTs(metaplex!);
+  // }, []);
   return (
     <BrowserRouter>
       <ToastContainer
-        position="top-right"
+        position='top-right'
         autoClose={5000}
         hideProgressBar={true}
         newestOnTop={false}
@@ -30,12 +30,12 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme='light'
       />
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route path='/explore' element={<Explore />} />
       </Routes>
       <Footer />
     </BrowserRouter>
