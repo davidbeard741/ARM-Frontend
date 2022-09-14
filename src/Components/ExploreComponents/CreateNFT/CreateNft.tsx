@@ -18,13 +18,23 @@ const CreateNFT: FC = () => {
               <label className={styles.imgWrapper} form="inputimage">
                 <input
                   type="file"
-                  // accept='image/*'
+                  accept="image/*"
                   id="inputimage"
-                  {...formik.getFieldProps("files")}
+                  onChange={(ev) => {
+                    if (ev?.target?.files)
+                      formik.setFieldValue("files", ev?.target?.files[0]);
+                  }}
+                  // {...formik.getFieldProps("files")}
                 />
                 <div className={styles.img}>
-                  <IoMdImages />
-                  <label>Drag or pinch to choose an Image</label>
+                  {formik.values.files ? (
+                    <img src={URL.createObjectURL(formik.values.files)} />
+                  ) : (
+                    <>
+                      <IoMdImages />
+                      <label>Drag or pinch to choose an Image</label>
+                    </>
+                  )}
                 </div>
               </label>
               {formik.errors.files && formik.touched.files ? (
