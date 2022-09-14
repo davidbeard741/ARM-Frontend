@@ -1,10 +1,9 @@
-import React from "react";
-import styles from "../index.module.scss";
-import { GiWallet } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import { GiWallet } from "react-icons/gi";
 import { HiHome } from "react-icons/hi";
 import { MdOutlineTravelExplore } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
+import styles from "../index.module.scss";
 
 const MobileView = () => {
   const { pathname } = useLocation();
@@ -20,7 +19,7 @@ const MobileView = () => {
           className={pathname === "/explore" ? styles.active : styles.card}
         >
           <MdOutlineTravelExplore />
-          <label>Eplore</label>
+          <label>Create NFT</label>
         </Link>
         <div className={styles.card}>
           <CgProfile />

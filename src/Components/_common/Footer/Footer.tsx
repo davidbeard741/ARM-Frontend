@@ -1,6 +1,6 @@
+import footerImg from "../../../Assets/logo/footerLogo.svg";
 import DataFile from "./data";
 import styles from "./Footer.module.scss";
-import footerImg from "../../../Assets/logo/footerLogo.svg";
 
 const Footer = () => {
   return (
@@ -16,8 +16,8 @@ const Footer = () => {
             </p>
           </div>
           <div className={styles.rightWrapper}>
-            {DataFile.ImgData.map((item: any) => (
-              <div className={styles.imgWrapper}>
+            {DataFile.ImgData.map((item, index) => (
+              <div className={styles.imgWrapper} key={index}>
                 <item.img />
               </div>
             ))}
@@ -36,24 +36,24 @@ const Footer = () => {
             <div className={styles.linkWrapper}>
               <label>Marketplace</label>
               <ul>
-                {DataFile.marketplace.map((item) => (
-                  <li>{item.name}</li>
+                {DataFile.marketplace.map((item, index) => (
+                  <li key={index}>{item.name}</li>
                 ))}
               </ul>
             </div>
             <div className={styles.linkWrapper}>
               <label>My Account</label>
               <ul>
-                {DataFile.Account.map((item) => (
-                  <li>{item.name}</li>
+                {DataFile.Account.map((item, index) => (
+                  <li key={index}>{item.name}</li>
                 ))}
               </ul>
             </div>
             <div className={styles.linkWrapper}>
               <label>Company</label>
               <ul>
-                {DataFile.Company.map((item) => (
-                  <li>{item.name}</li>
+                {DataFile.Company.map((item, index) => (
+                  <li key={index}>{item.name}</li>
                 ))}
               </ul>
             </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../../_common/Button/Button";
 import styles from "./Header.module.scss";
 

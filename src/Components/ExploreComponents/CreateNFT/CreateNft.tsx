@@ -1,8 +1,26 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Button } from "../../_common/Button/Button";
 import Input from "../../_common/Input/input";
 import styles from "./nft.module.scss";
+import { IoMdImages } from "react-icons/io";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import { toast } from "react-toastify";
+
 const CreateNFT: FC = () => {
+  const formikSchema = yup.object({
+    name: yup.string().required("name required"),
+  });
+  const formik = useFormik({
+    validationSchema: formikSchema,
+    initialValues: {
+      name: "",
+    },
+    onSubmit: (values) => {
+      toast.success("sadjask");
+      console.log("🚀 ~ file: CreateNft.tsx ~ line 19 ~ values", values);
+    },
+  });
   return (
     <>
       <div className={styles.container}>
@@ -10,17 +28,34 @@ const CreateNFT: FC = () => {
           <label>Create NFT</label>
           <div className={styles.nftWrapper}>
             <div className={styles.leftWrapper}>
-              <div className={styles.imgWrapper}>
-                <input type="file" accept="image/*" />
-              </div>
+              <label className={styles.imgWrapper} form="inputimage">
+                <input type="file" accept="image/*" id="inputimage" />
+                <div className={styles.img}>
+                  <IoMdImages />
+                  <label>Drag or pinch to choose an Image</label>
+                </div>
+              </label>
             </div>
-            <div className={styles.rightWrapper}>
+            <form
+              className={styles.rightWrapper}
+              onSubmit={formik.handleSubmit}
+            >
               <h2>Basic Information</h2>
               <div className={styles.inputsfieldswrapper}>
                 <div className={styles.titleWrapper}>
                   <div className={styles.inputwrapper}>
                     <p>Name</p>
-                    <Input type="text" Name="name" placeholder="Name" />
+                    <Input
+                      type="text"
+                      Name="name"
+                      placeholder="Name"
+                      config={formik.getFieldProps("name")}
+                    />
+                    {formik.errors.name && formik.touched.name ? (
+                      <div style={{ color: "#E5516B" }}>
+                        {formik.errors.name}
+                      </div>
+                    ) : null}
                   </div>
                   <div className={styles.inputwrapper}>
                     <p>Symbol</p>
@@ -34,12 +69,12 @@ const CreateNFT: FC = () => {
                     <textarea
                       rows={10}
                       className={styles.textArea}
-                      placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hac ultricies ut diam libero, non at luctus ante. Tempus venenatis gravida diam facilisis non. Ultrices etiam ut sit scelerisque. Et in fusce cursus sodales aliquam vel vitae odio malesuada. Sed velit, diam mauris euismod malesuada vestibulum at sed. Viverra nec eget pulvinar sed id quam ultrices pharetra sit. "
+                      placeholder="Description"
                     />
                   </div>
                 </div>
 
-                <div className={styles.advanceinfoWrapper}>
+                {/* <div className={styles.advanceinfoWrapper}>
                   <label>Advanced Information</label>
                   <div className={styles.inputwrapper}>
                     <p>URL (External)</p>
@@ -84,10 +119,12 @@ const CreateNFT: FC = () => {
                         Coloractive="black"
                         Colorhover="#fff"
                         bghover="#ffb718"
+                        height="47px"
+                        lapheight="37px"
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className={styles.createbtn}>
@@ -99,10 +136,13 @@ const CreateNFT: FC = () => {
                     Coloractive="#fff"
                     Colorhover="#ffb718"
                     bghover="transparent"
+                    height="47px"
+                    lapheight="37px"
+                    type="submit"
                   />
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

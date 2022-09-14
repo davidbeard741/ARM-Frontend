@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import styles from "./DropDown.module.scss";
+import { useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
+import styles from "./DropDown.module.scss";
 interface prop {
   selected?: {} | any;
   setSelected?: {} | any;

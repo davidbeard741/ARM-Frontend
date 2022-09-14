@@ -6,7 +6,9 @@ const BtnStyles = (
   Coloractive: any,
   Colorhover: any,
   borderHover?: any,
-  borderActive?: any
+  borderActive?: any,
+  height?: any,
+  lapheight?: any
 ) => {
   const [isHovering, setIsHovering] = useState(false);
   const [FindWidth, setFindWidth] = useState(window.innerWidth);
@@ -44,9 +46,13 @@ const BtnStyles = (
     textAlign: "center",
     height:
       FindWidth <= size?.mobile
-        ? "40px"
+        ? height
+          ? height
+          : "40px"
         : FindWidth >= size.laptop
-        ? "50px"
+        ? lapheight
+          ? height
+          : "50px"
         : "60px",
     width: "100%",
     transition: isHovering ? "0.5s" : "0.8s",

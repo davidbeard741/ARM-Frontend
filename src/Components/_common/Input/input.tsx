@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "./input.module.scss";
 import { FiSearch } from "react-icons/fi";
+import styles from "./input.module.scss";
 interface prop {
   style?: any;
   img?: any;
