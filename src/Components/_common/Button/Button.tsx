@@ -1,7 +1,11 @@
 import BtnStyles from "./BtnStyles";
 
-interface prop {
-  Name: String;
+interface prop
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  Name: string;
   bghover?: any;
   bgactive?: any;
   Coloractive?: any;
@@ -36,6 +40,7 @@ export const Button = (Props: prop) => {
         style={{ ...btnFile, ...customStyle }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        {...Props}
       >
         {Name}
       </button>
