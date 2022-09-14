@@ -1,4 +1,3 @@
-import React from "react";
 import data from "./data";
 import styles from "./index.module.scss";
 const Work = () => {
@@ -8,8 +7,8 @@ const Work = () => {
         <div className={styles.wrapper}>
           <label>How It Works</label>
           <div className={styles.cardWrapper}>
-            {data.map((item) => (
-              <div className={styles.card}>
+            {data.map((item, index) => (
+              <div className={styles.card} key={index}>
                 <img src={item.img} alt="" />
                 <label>{item.heading}</label>
                 <p>{item.pera}</p>

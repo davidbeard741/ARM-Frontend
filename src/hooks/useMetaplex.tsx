@@ -1,9 +1,5 @@
+import { Metaplex } from "@metaplex-foundation/js";
 import { createContext, useContext } from "react";
-import {
-  Metaplex,
-  walletAdapterIdentity,
-  bundlrStorage,
-} from "@metaplex-foundation/js";
 
 const DEFAULT_CONTEXT: {
   metaplex: Metaplex | null;

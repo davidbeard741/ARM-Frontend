@@ -1,8 +1,7 @@
-import React from "react";
-import styles from "./index.module.scss";
 import Category1 from "../../../Assets/images/Category1.svg";
 import Category2 from "../../../Assets/images/Category2.svg";
 import Category3 from "../../../Assets/images/Category3.svg";
+import styles from "./index.module.scss";
 let data = [
   {
     id: 1,
@@ -27,8 +26,8 @@ const Category = () => {
         <div className={styles.wrapper}>
           <label>How It Works</label>
           <div className={styles.cardWrapper}>
-            {data.map((item) => (
-              <div className={styles.card}>
+            {data.map((item, index) => (
+              <div className={styles.card} key={index}>
                 <img src={item.img} alt="" />
                 <div className={styles.btn}>{item.name}</div>
               </div>

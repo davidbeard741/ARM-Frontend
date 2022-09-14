@@ -22,7 +22,8 @@ export const createNFT = async (params: {
     name: string;
     description: string;
     symbol: string;
-    imageURI: string;
+    // imageURI: string;
+    files: any;
   };
 }) => {
   const { uri } = await params.metaplex
@@ -31,7 +32,8 @@ export const createNFT = async (params: {
       name: `${params.metadata?.name} Metadata`,
       description: params.metadata?.description,
       symbol: params.metadata?.symbol,
-      image: params.metadata?.imageURI,
+      // image: params.metadata?.imageURI,
+      image: await toMetaplexFileFromBrowser(params.metadata.files[0]),
     })
     .run();
 

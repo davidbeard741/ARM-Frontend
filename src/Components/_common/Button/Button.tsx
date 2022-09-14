@@ -1,6 +1,6 @@
 import BtnStyles from "./BtnStyles";
 
-interface prop
+interface Prop
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
@@ -13,8 +13,11 @@ interface prop
   customStyle?: any;
   borderHover?: any;
   borderActive?: any;
+  height?: any;
+  lapheight?: any;
+  type?: any;
 }
-export const Button = (Props: prop) => {
+export const Button = (Props: Prop) => {
   const {
     Name,
     bghover,
@@ -24,6 +27,9 @@ export const Button = (Props: prop) => {
     customStyle,
     borderHover,
     borderActive,
+    height,
+    lapheight,
+    type,
   } = Props;
   const { btnFile, container, handleMouseEnter, handleMouseLeave } = BtnStyles(
     bghover,
@@ -31,7 +37,9 @@ export const Button = (Props: prop) => {
     Coloractive,
     Colorhover,
     borderActive,
-    borderHover
+    borderHover,
+    height,
+    lapheight
   );
 
   return (
@@ -41,6 +49,7 @@ export const Button = (Props: prop) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...Props}
+        type={type}
       >
         {Name}
       </button>

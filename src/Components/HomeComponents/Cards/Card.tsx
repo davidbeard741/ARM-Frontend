@@ -1,11 +1,10 @@
-import React from "react";
-import styles from "./Card.module.scss";
+import { SwiperSlide } from "swiper/react";
+import icon from "../../../Assets/icons/NFTIcon.svg";
 import NFT1 from "../../../Assets/images/NFT1.svg";
 import NFT2 from "../../../Assets/images/NFT2.svg";
 import NFT3 from "../../../Assets/images/NFT3.svg";
-import icon from "../../../Assets/icons/NFTIcon.svg";
 import Slider from "../../_common/Slider/slider";
-import { SwiperSlide } from "swiper/react";
+import styles from "./Card.module.scss";
 
 const Card = () => {
   let data = [
@@ -44,7 +43,7 @@ const Card = () => {
             <div className={styles.CardGradient}></div>
             <div className={styles.CardGradient1}></div>
             {data.map((item, index) => (
-              <SwiperSlide className={styles.sliderWrapper}>
+              <SwiperSlide className={styles.sliderWrapper} key={index}>
                 <div className={styles.Card}>
                   <img src={item.img} alt="" />
                   <div className={styles.overLay}>
