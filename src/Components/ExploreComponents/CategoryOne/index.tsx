@@ -14,6 +14,7 @@ const CategoryOne = () => {
               <div className={styles.imgWrapper}></div>
               <div className={styles.middleWrapper}>
                 <label>LACOSTEMARA#012</label>
+                <p>3 landars</p>
               </div>
               <div className={styles.bottomWrapper}></div>
             </div>
