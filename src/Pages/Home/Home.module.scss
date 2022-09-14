@@ -1,0 +1,16 @@
+.container {
+    width: 100%;
+    padding: 0 5rem;
+    box-sizing: border-box;
+    background-image: url("../../Assets//backgrounds//background.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 254%;
+    background-size: 45% 90%;
+    padding-bottom: 18rem;
+
+    @media screen and (max-width:600px) {
+        padding: 0 2rem;
+        background-position: 99% 357%;
+        background-size: 61% 89%;
+    }
+}

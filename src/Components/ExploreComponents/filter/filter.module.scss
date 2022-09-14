@@ -1,0 +1,27 @@
+.container {
+    width: 100%;
+    padding: 0.4rem 5rem;
+    box-sizing: border-box;
+
+    .wrapper {
+        width: 100%;
+
+
+        .inputWrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            .leftWrapper {
+                display: flex;
+                width: 30%;
+                column-gap: 2rem;
+                justify-content: space-between;
+            }
+
+            .rightWrapper {
+                width: 20%;
+            }
+        }
+    }
+}
