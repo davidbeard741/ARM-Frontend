@@ -3,24 +3,10 @@ import { Button } from "../../_common/Button/Button";
 import Input from "../../_common/Input/input";
 import styles from "./nft.module.scss";
 import { IoMdImages } from "react-icons/io";
-import * as yup from "yup";
-import { useFormik } from "formik";
-import { toast } from "react-toastify";
+import useNft from "./useNft";
 
 const CreateNFT: FC = () => {
-  const formikSchema = yup.object({
-    name: yup.string().required("name required"),
-  });
-  const formik = useFormik({
-    validationSchema: formikSchema,
-    initialValues: {
-      name: "",
-    },
-    onSubmit: (values) => {
-      toast.success("sadjask");
-      console.log("🚀 ~ file: CreateNft.tsx ~ line 19 ~ values", values);
-    },
-  });
+  const { formik } = useNft();
   return (
     <>
       <div className={styles.container}>
@@ -59,7 +45,17 @@ const CreateNFT: FC = () => {
                   </div>
                   <div className={styles.inputwrapper}>
                     <p>Symbol</p>
-                    <Input type="text" Name="name" placeholder="Symbol" />
+                    <Input
+                      type="text"
+                      Name="name"
+                      placeholder="Symbol"
+                      config={formik.getFieldProps("symbol")}
+                    />
+                    {formik.errors.symbol && formik.touched.symbol ? (
+                      <div style={{ color: "#E5516B" }}>
+                        {formik.errors.symbol}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
 
@@ -70,7 +66,13 @@ const CreateNFT: FC = () => {
                       rows={10}
                       className={styles.textArea}
                       placeholder="Description"
+                      {...formik.getFieldProps("description")}
                     />
+                    {formik.errors.description && formik.touched.description ? (
+                      <div style={{ color: "#E5516B" }}>
+                        {formik.errors.description}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
 
