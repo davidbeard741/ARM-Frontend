@@ -5,11 +5,13 @@ import Footer from "./Components/_common/Footer/Footer";
 import Navbar from "./Components/_common/NavBar/NavBar";
 import { useMetaplex } from "./hooks/useMetaplex";
 import "./index.css";
-import Explore from "./Pages/Explore/Explore";
+import Create from "./Pages/Create/Create";
 import Home from "./Pages/Home/Home";
 import { getUserNFTs } from "./services/metaplex.service";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./Components/_common/scrollToTop";
+import Explore from "./Pages/Explore/Explore";
 
 function App() {
   const { metaplex } = useMetaplex();
@@ -33,9 +35,11 @@ function App() {
         theme="light"
       />
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/create" element={<Explore />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/explore" element={<Explore />} />
       </Routes>
       <Footer />
     </BrowserRouter>

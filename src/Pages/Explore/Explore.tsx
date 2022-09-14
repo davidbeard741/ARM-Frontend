@@ -1,11 +1,13 @@
-import CreateNFT from "../../Components/ExploreComponents/CreateNFT/CreateNft";
+import CategoryOne from "../../Components/ExploreComponents/CategoryOne";
+import Filter from "../../Components/ExploreComponents/filter/filter";
 import styles from "./Explore.module.scss";
 
 const Explore = () => {
   return (
     <>
       <div className={styles.container}>
-        <CreateNFT />
+        <Filter />
+        <CategoryOne />
       </div>
     </>
   );
