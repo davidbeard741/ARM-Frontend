@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoMdSettings } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
 import styles from "./Header.module.scss";
 import headerImg from "../../../Assets/backgrounds/HomeScreenHeader.svg";
-<<<<<<< HEAD
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { toast } from "react-toastify";
 
 interface Props {
   address: string;
+  textToCopy: string;
 }
 const Header = (props: Props) => {
-=======
-import { CopyToClipboard } from "react-copy-to-clipboard";
-const Header = () => {
-  const [active, setActive] = useState(false);
->>>>>>> f12f1bfd5764e58c6f145491fbac3660ca79ca3d
   return (
     <>
       <div className={styles.container}>
@@ -24,33 +21,32 @@ const Header = () => {
           <div className={styles.headingWrapper}>
             <div className={styles.heading}>
               <label>{props.address}</label>
-              <span>
-                <MdOutlineContentCopy />
-              </span>
+              <CopyToClipboard text={props.textToCopy}>
+                <span onClick={() => toast.success("Address copied")}>
+                  <MdOutlineContentCopy />
+                </span>
+              </CopyToClipboard>
               {/* <span>
                 <IoMdSettings />
               </span> */}
             </div>
-<<<<<<< HEAD
             {/* <div className={styles.subHeading}>
               <p>{props.address}</p>
               <span>
                 <MdOutlineContentCopy />
               </span>
             </div> */}
-=======
-            <div className={styles.subHeading}>
-              <p>1234567890qwertyuiopasdfghjkl</p>
-              <CopyToClipboard text="1234567890qwertyuiopasdfghjkl">
+            {/* <div className={styles.subHeading}>
+              <p>{props.address}</p>
+              <CopyToClipboard text={props.textToCopy}>
                 <span onClick={() => setActive(true)}>
                   <MdOutlineContentCopy />
                 </span>
               </CopyToClipboard>
-            </div>
-            <div className={styles.copyText}>
+            </div> */}
+            {/* <div className={styles.copyText}>
               {active ? <div style={{ color: "green" }}>Copied.</div> : null}
-            </div>
->>>>>>> f12f1bfd5764e58c6f145491fbac3660ca79ca3d
+            </div> */}
           </div>
         </div>
       </div>

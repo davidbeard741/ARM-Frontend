@@ -29,11 +29,11 @@ const CreateNFT: FC = () => {
           <div className={styles.loader}>
             <ColorRing
               visible={true}
-              height="80"
-              width="100"
-              ariaLabel="blocks-loading"
+              height='80'
+              width='100'
+              ariaLabel='blocks-loading'
               wrapperStyle={{}}
-              wrapperClass="blocks-wrapper"
+              wrapperClass='blocks-wrapper'
               colors={[
                 "rgb(255, 183, 24)",
                 "rgb(255, 183, 24)",
@@ -52,13 +52,13 @@ const CreateNFT: FC = () => {
                   className={
                     formik.values.files ? styles.imgWrapper2 : styles.imgWrapper
                   }
-                  form="inputimage"
+                  form='inputimage'
                 >
                   <input
-                    type="file"
-                    accept="image/*"
-                    id="inputimage"
-                    onChange={(ev) => {
+                    type='file'
+                    accept='image/*'
+                    id='inputimage'
+                    onChange={ev => {
                       if (ev?.target?.files)
                         formik.setFieldValue("files", ev?.target?.files);
                     }}
@@ -85,9 +85,9 @@ const CreateNFT: FC = () => {
                     <div className={styles.inputwrapper}>
                       {/* <p>Name</p> */}
                       <Input
-                        type="text"
-                        Name="name"
-                        placeholder="Name"
+                        type='text'
+                        Name='name'
+                        placeholder='Name'
                         style={{ height: "45px" }}
                         config={formik.getFieldProps("name")}
                       />
@@ -100,10 +100,10 @@ const CreateNFT: FC = () => {
                     <div className={styles.inputwrapper}>
                       {/* <p>Symbol</p> */}
                       <Input
-                        type="text"
-                        Name="name"
+                        type='text'
+                        Name='name'
                         style={{ height: "45px" }}
-                        placeholder="Symbol"
+                        placeholder='Symbol'
                         config={formik.getFieldProps("symbol")}
                       />
                       {formik.errors.symbol && formik.touched.symbol ? (
@@ -120,7 +120,7 @@ const CreateNFT: FC = () => {
                       <textarea
                         rows={10}
                         className={styles.textArea}
-                        placeholder="Description"
+                        placeholder='Description'
                         {...formik.getFieldProps("description")}
                       />
                       {formik.errors.description &&
@@ -133,25 +133,14 @@ const CreateNFT: FC = () => {
                   </div>
 
                   <div className={styles.advanceinfoWrapper}>
-<<<<<<< HEAD
-                    {/* <label>Advanced Information</label> */}
-                    {/* <div className={styles.inputwrapper}>
-                      <p>URL (External)</p>
-                      <Input type='text' Name='name' placeholder='URL' />
-                    </div> */}
-                    {/* <div className={styles.titleWrapper}>
-                      <div className={styles.inputwrapper}>
-                        <p>Collectible Group</p>
-                        <Input type='text' Name='name' placeholder='Group' />
-=======
                     <label>Advanced Information</label>
                     <div className={styles.inputwrapper}>
                       {/* <p>URL (External)</p> */}
                       <Input
-                        type="text"
+                        type='text'
                         style={{ height: "45px" }}
-                        Name="name"
-                        placeholder="URL (External)"
+                        Name='name'
+                        placeholder='URL (External)'
                       />
                     </div>
                     <div className={styles.titleWrapper}>
@@ -159,55 +148,35 @@ const CreateNFT: FC = () => {
                         {/* <p>Collectible Group</p> */}
                         <Input
                           style={{ height: "45px" }}
-                          type="text"
-                          Name="name"
-                          placeholder="Collectible Group"
+                          type='text'
+                          Name='name'
+                          placeholder='Collectible Group'
                         />
->>>>>>> f12f1bfd5764e58c6f145491fbac3660ca79ca3d
                       </div>
 
                       <div className={styles.inputwrapper}>
                         {/* <p>Identifier Name</p> */}
                         <Input
-<<<<<<< HEAD
+                          style={{ height: "45px" }}
                           type='text'
                           Name='name'
                           placeholder='Identifier Name'
                         />
                       </div>
-                    </div> */}
-=======
-                          style={{ height: "45px" }}
-                          type="text"
-                          Name="name"
-                          placeholder="Identifier Name"
-                        />
-                      </div>
                     </div>
->>>>>>> f12f1bfd5764e58c6f145491fbac3660ca79ca3d
                   </div>
 
                   <div className={styles.attributesWrapper}>
                     <label>Attributes</label>
                     <div className={styles.inputs}>
-<<<<<<< HEAD
                       {newData.map(item => (
-                        <>
-                          <div className={styles.inputwrapper} key={item.id}>
-                            <p>{item.heading}</p>
-                            <Input
-                              type='text'
-                              Name='name'
-=======
-                      {newData.map((item) => (
                         <>
                           <div className={styles.inputwrapper} key={item.id}>
                             {/* <p>{item.heading}</p> */}
                             <Input
                               style={{ height: "45px" }}
-                              type="text"
-                              Name="name"
->>>>>>> f12f1bfd5764e58c6f145491fbac3660ca79ca3d
+                              type='text'
+                              Name='name'
                               placeholder={item.name}
                             />
                           </div>
@@ -221,15 +190,15 @@ const CreateNFT: FC = () => {
                           " "
                         ) : (
                           <Button
-                            Name="Add Attribute"
-                            bgactive="transparent"
-                            borderHover="2px solid #ffb718"
-                            Coloractive="#ffb718"
-                            Colorhover="#fff"
-                            bghover="#ffb718"
-                            height="45px"
-                            lapheight="37px"
-                            type="none"
+                            Name='Add Attribute'
+                            bgactive='transparent'
+                            borderHover='2px solid #ffb718'
+                            Coloractive='#ffb718'
+                            Colorhover='#fff'
+                            bghover='#ffb718'
+                            height='45px'
+                            lapheight='37px'
+                            type='none'
                             onClick={() => {
                               setNewData([
                                 ...newData,
@@ -248,15 +217,15 @@ const CreateNFT: FC = () => {
                           />
                         )}
                         <Button
-                          Name="Remove Attribute"
-                          bgactive="transparent"
-                          borderHover="2px solid #ffb718"
-                          Coloractive="#ffb718"
-                          Colorhover="#fff"
-                          bghover="#ffb718"
-                          height="47px"
-                          lapheight="37px"
-                          type="none"
+                          Name='Remove Attribute'
+                          bgactive='transparent'
+                          borderHover='2px solid #ffb718'
+                          Coloractive='#ffb718'
+                          Colorhover='#fff'
+                          bghover='#ffb718'
+                          height='47px'
+                          lapheight='37px'
+                          type='none'
                           // onClick={()}
                         />
                       </div>
@@ -267,15 +236,15 @@ const CreateNFT: FC = () => {
                 <div className={styles.createbtn}>
                   <div className={styles.btnActive}>
                     <Button
-                      Name="Create NFT"
-                      bgactive="#ffb718"
-                      borderHover="none"
-                      Coloractive="#fff"
-                      Colorhover="#ffb718"
-                      bghover="transparent"
-                      height="47px"
-                      lapheight="37px"
-                      type="submit"
+                      Name='Create NFT'
+                      bgactive='#ffb718'
+                      borderHover='none'
+                      Coloractive='#fff'
+                      Colorhover='#ffb718'
+                      bghover='transparent'
+                      height='47px'
+                      lapheight='37px'
+                      type='submit'
                     />
                   </div>
                 </div>

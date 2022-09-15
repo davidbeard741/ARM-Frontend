@@ -8,17 +8,20 @@ import styles from "./Profile.module.scss";
 const Profile = () => {
   const { wallet } = useWallet();
 
-  const address = useMemo(() => {
+  const [ellipsisAddress, address] = useMemo(() => {
     if (wallet?.adapter.connected) {
-      return ellipsisText(wallet?.adapter.publicKey?.toString()!);
-    } else return "";
+      return [
+        ellipsisText(wallet?.adapter.publicKey?.toString()!),
+        wallet?.adapter.publicKey?.toString(),
+      ];
+    } else return ["", ""];
   }, [wallet?.adapter.connected, wallet?.adapter.publicKey]);
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <Header address={address} />
+          <Header address={ellipsisAddress || ""} textToCopy={address!} />
           <Tabs />
         </div>
       </div>
