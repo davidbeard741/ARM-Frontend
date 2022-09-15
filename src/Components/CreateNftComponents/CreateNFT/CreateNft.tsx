@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { IoMdImages } from "react-icons/io";
 import { Button } from "../../_common/Button/Button";
-import DataFile from "../../_common/Footer/data";
 import Input from "../../_common/Input/input";
 import LoaderSpinner from "../../_common/loaderSpinner/loaderSpinner";
 import styles from "./nft.module.scss";
@@ -132,49 +131,47 @@ const CreateNFT: FC = () => {
                     </div>
                   </div>
 
-                  {/* <div className={styles.advanceinfoWrapper}>
-                    <label>Advanced Information</label>
-                    <div className={styles.inputwrapper}>
+                  <div className={styles.advanceinfoWrapper}>
+                    {/* <label>Advanced Information</label> */}
+                    {/* <div className={styles.inputwrapper}>
                       <p>URL (External)</p>
-                      <Input type="text" Name="name" placeholder="URL" />
-                    </div>
-                    <div className={styles.titleWrapper}>
+                      <Input type='text' Name='name' placeholder='URL' />
+                    </div> */}
+                    {/* <div className={styles.titleWrapper}>
                       <div className={styles.inputwrapper}>
                         <p>Collectible Group</p>
-                        <Input type="text" Name="name" placeholder="Group" />
+                        <Input type='text' Name='name' placeholder='Group' />
                       </div>
 
                       <div className={styles.inputwrapper}>
                         <p>Identifier Name</p>
                         <Input
-                          type="text"
-                          Name="name"
-                          placeholder="Identifier Name"
+                          type='text'
+                          Name='name'
+                          placeholder='Identifier Name'
                         />
                       </div>
-                    </div>
-                  </div> */}
+                    </div> */}
+                  </div>
 
-                  {/* <div className={styles.attributesWrapper}>
+                  <div className={styles.attributesWrapper}>
                     <label>Attributes</label>
-                    <div className={styles.inputs}> */}
-                  {
-                    //newData.map((item) => (
-                    // <>
-                    //   <div className={styles.inputwrapper} key={item.id}>
-                    //     <p>{item.heading}</p>
-                    //     <Input
-                    //       type="text"
-                    //       Name="name"
-                    //       placeholder={item.name}
-                    //     />
-                    //   </div>
-                    // </>
-                    // ))
-                  }
-                  {/* </div>  */}
+                    <div className={styles.inputs}>
+                      {newData.map(item => (
+                        <>
+                          <div className={styles.inputwrapper} key={item.id}>
+                            <p>{item.heading}</p>
+                            <Input
+                              type='text'
+                              Name='name'
+                              placeholder={item.name}
+                            />
+                          </div>
+                        </>
+                      ))}
+                    </div>
 
-                  {/* <div className={styles.btnWrapper}>
+                    <div className={styles.btnWrapper}>
                       <div className={styles.btn}>
                         <Button
                           Name='Add Attribute'
@@ -203,8 +200,8 @@ const CreateNFT: FC = () => {
                           }}
                         />
                       </div>
-                    </div> 
-                  </div>*/}
+                    </div>
+                  </div>
                 </div>
 
                 <div className={styles.createbtn}>
