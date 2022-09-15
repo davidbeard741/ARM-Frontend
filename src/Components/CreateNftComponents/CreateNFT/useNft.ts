@@ -38,7 +38,7 @@ const useNft = () => {
     onSubmit: async values => {
       try {
         setLoading(true);
-        toast.success("Creating NFT");
+        toast.success("Creating NFT, please wait...");
         await createNFT({
           metaplex: metaplex!,
           metadata: {
@@ -57,6 +57,7 @@ const useNft = () => {
   });
   return {
     formik,
+    loading,
   };
 };
 
