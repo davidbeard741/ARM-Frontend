@@ -7,22 +7,33 @@ import LoaderSpinner from "../../_common/loaderSpinner/loaderSpinner";
 import styles from "./nft.module.scss";
 import useNft from "./useNft";
 import { ColorRing } from "react-loader-spinner";
+import { isTemplateExpression } from "typescript";
 
 const CreateNFT: FC = () => {
   const { formik, loading } = useNft();
   const [newData, setNewData] = useState([
     {
       name: "Attribute Name",
-      heading: "Attribute Name",
+      placeholder: "attributeName",
       id: 1,
+      value: "",
     },
     {
       name: "Attribute value",
-      heading: "Attribute value",
+      placeholder: "attributeValue",
       id: 2,
+      value: "",
     },
   ]);
-  const removeData = () => {};
+  console.log("newdata", newData);
+  const handleChange = (value: any, id: number) => {
+    console.log("hit");
+    console.log(value, id, ">>>>>??hhhh");
+    const index = newData.findIndex((item) => item.id === id);
+    let cloneArray = [...newData];
+    cloneArray[index].value += value;
+    setNewData([...cloneArray]);
+  };
 
   return (
     <>
@@ -141,9 +152,15 @@ const CreateNFT: FC = () => {
                       <Input
                         type="text"
                         style={{ height: "45px" }}
-                        Name="name"
+                        Name="url"
                         placeholder="URL (External)"
+                        config={formik.getFieldProps("url")}
                       />
+                      {formik.errors.url && formik.touched.url ? (
+                        <div style={{ color: "#E5516B" }}>
+                          {formik.errors.url}
+                        </div>
+                      ) : null}
                     </div>
                     <div className={styles.titleWrapper}>
                       <div className={styles.inputwrapper}>
@@ -151,9 +168,16 @@ const CreateNFT: FC = () => {
                         <Input
                           style={{ height: "45px" }}
                           type="text"
-                          Name="name"
+                          Name="collectible"
                           placeholder="Collectible Group"
+                          config={formik.getFieldProps("collectible")}
                         />
+                        {formik.errors.collectible &&
+                        formik.touched.collectible ? (
+                          <div style={{ color: "#E5516B" }}>
+                            {formik.errors.collectible}
+                          </div>
+                        ) : null}
                       </div>
 
                       <div className={styles.inputwrapper}>
@@ -163,7 +187,14 @@ const CreateNFT: FC = () => {
                           type="text"
                           Name="name"
                           placeholder="Identifier Name"
+                          config={formik.getFieldProps("identifiername")}
                         />
+                        {formik.errors.identifiername &&
+                        formik.touched.identifiername ? (
+                          <div style={{ color: "#E5516B" }}>
+                            {formik.errors.identifiername}
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -171,7 +202,7 @@ const CreateNFT: FC = () => {
                   <div className={styles.attributesWrapper}>
                     <label>Attributes</label>
                     <div className={styles.inputs}>
-                      {newData.map((item) => (
+                      {newData.map((item, index) => (
                         <>
                           <div className={styles.inputwrapper} key={item.id}>
                             {/* <p>{item.heading}</p> */}
@@ -179,7 +210,14 @@ const CreateNFT: FC = () => {
                               style={{ height: "45px" }}
                               type="text"
                               Name="name"
+                              value={item.value}
                               placeholder={item.name}
+                              config={formik.getFieldProps(
+                                `${item.placeholder}`
+                              )}
+                              onChange={(event: any) => {
+                                handleChange(event.target.value, item.id);
+                              }}
                             />
                           </div>
                         </>
@@ -200,19 +238,21 @@ const CreateNFT: FC = () => {
                             bghover="#ffb718"
                             height="45px"
                             lapheight="37px"
-                            type="none"
+                            type="button"
                             onClick={() => {
                               setNewData([
                                 ...newData,
                                 {
                                   id: newData[newData.length - 1].id + 1,
                                   name: "Attribute Name",
-                                  heading: "Attribute Name",
+                                  placeholder: "attributeName",
+                                  value: "",
                                 },
                                 {
                                   id: newData[newData.length - 1].id + 1,
                                   name: "Attribute value",
-                                  heading: "Attribute value",
+                                  placeholder: "attributeValue",
+                                  value: "",
                                 },
                               ]);
                             }}
@@ -228,8 +268,10 @@ const CreateNFT: FC = () => {
                             bghover="#ffb718"
                             height="47px"
                             lapheight="37px"
-                            type="none"
-                            onClick={() => removeData()}
+                            type="button"
+                            onClick={() =>
+                              setNewData([...newData.slice(0, -2)])
+                            }
                           />
                         ) : (
                           ""

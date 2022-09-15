@@ -12,10 +12,32 @@ const useNft = () => {
   const [loading, setLoading] = useState(false);
 
   const formikSchema = yup.object({
-    name: yup.string().required("name required"),
-    symbol: yup.string().required("symbol required"),
-    description: yup.string().required("description required"),
-    files: yup.mixed().required("File is required"),
+    name: yup
+      .string()
+      .required("* Name is required")
+      .min(6, "Min 6 Characters")
+      .max(40, "Characters cannot be above 40"),
+    symbol: yup.string().required("* Symbol is required"),
+    description: yup.string().required("* Description is required"),
+    files: yup.mixed().required("* Choose a File"),
+    url: yup.string().required("* URL is required"),
+    collectible: yup.string().required("* Collectible Group is required"),
+    identifiername: yup.string().required("* Identifier Name is required"),
+    attributeName: yup.string().required("required"),
+    attributeValue: yup.string().required("required"),
+
+    // paymentDetail: yup.array().of(
+    //   yup.object().shape({
+    //     label: yup
+    //       .string()
+    //       .trim("Cannot include leading and trailing spaces")
+    //       .required("Label"),
+    //     value: yup
+    //       .string()
+    //       .trim("Cannot include leading and trailing spaces")
+    //       .required("Value is required"),
+    //   })
+    // ),
   });
   const formik = useFormik({
     validationSchema: formikSchema,
@@ -24,8 +46,14 @@ const useNft = () => {
       symbol: "",
       description: "",
       files: null,
+      url: "",
+      collectible: "",
+      identifiername: "",
+      attributeValue: "",
+      attributeName: "",
     },
-    onSubmit: async values => {
+    onSubmit: async (values) => {
+      console.log(values, "values");
       try {
         setLoading(true);
         toast.success("Creating NFT, please wait...");

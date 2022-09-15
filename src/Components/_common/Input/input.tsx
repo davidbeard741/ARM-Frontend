@@ -13,6 +13,7 @@ interface prop {
   img2?: any;
   imgOnClick?: (prop: any) => any;
   search?: boolean;
+  onChange?: any;
 }
 function Input(Props: prop) {
   const {
@@ -28,6 +29,7 @@ function Input(Props: prop) {
     img2,
     search,
     imgOnClick,
+    onChange,
   } = Props;
   return (
     <div className={styles.container}>
@@ -40,9 +42,9 @@ function Input(Props: prop) {
             value={value}
             disabled={disable}
             name={Name}
-            // required
             onClick={onClick}
             {...config}
+            {...Props}
           />
           {img2 && (
             <span onClick={imgOnClick}>
