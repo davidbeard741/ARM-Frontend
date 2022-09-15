@@ -27,15 +27,15 @@ const CreateNFT: FC = () => {
   return (
     <>
       <form className={styles.container} onSubmit={formik.handleSubmit}>
-        {!loading ? (
+        {loading ? (
           <div className={styles.loader}>
             <ColorRing
               visible={true}
-              height="80"
-              width="100"
-              ariaLabel="blocks-loading"
+              height='80'
+              width='100'
+              ariaLabel='blocks-loading'
               wrapperStyle={{}}
-              wrapperClass="blocks-wrapper"
+              wrapperClass='blocks-wrapper'
               colors={[
                 "rgb(255, 183, 24)",
                 "rgb(255, 183, 24)",
@@ -155,26 +155,26 @@ const CreateNFT: FC = () => {
                     </div>
                   </div> */}
 
-                  <div className={styles.attributesWrapper}>
-                    {/* <label>Attributes</label>
+                  {/* <div className={styles.attributesWrapper}>
+                    <label>Attributes</label>
                     <div className={styles.inputs}> */}
-                    {
-                      //newData.map((item) => (
-                      // <>
-                      //   <div className={styles.inputwrapper} key={item.id}>
-                      //     <p>{item.heading}</p>
-                      //     <Input
-                      //       type="text"
-                      //       Name="name"
-                      //       placeholder={item.name}
-                      //     />
-                      //   </div>
-                      // </>
-                      // ))
-                    }
-                    {/* </div>  */}
+                  {
+                    //newData.map((item) => (
+                    // <>
+                    //   <div className={styles.inputwrapper} key={item.id}>
+                    //     <p>{item.heading}</p>
+                    //     <Input
+                    //       type="text"
+                    //       Name="name"
+                    //       placeholder={item.name}
+                    //     />
+                    //   </div>
+                    // </>
+                    // ))
+                  }
+                  {/* </div>  */}
 
-                    {/* <div className={styles.btnWrapper}>
+                  {/* <div className={styles.btnWrapper}>
                       <div className={styles.btn}>
                         <Button
                           Name='Add Attribute'
@@ -203,8 +203,8 @@ const CreateNFT: FC = () => {
                           }}
                         />
                       </div>
-                    </div> */}
-                  </div>
+                    </div> 
+                  </div>*/}
                 </div>
 
                 <div className={styles.createbtn}>
