@@ -8,15 +8,15 @@ interface Props {
 const NftCard = (prop: Props) => {
   const { img, heading, subHeading } = prop;
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.cardWrapper}>
         <img src={img} alt="" />
         <div className={styles.textWrapper}>
-          <label>LACOSTEMARA#012</label>
-          <p>3 landars</p>
+          <label>{heading}</label>
+          <p>{subHeading}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
