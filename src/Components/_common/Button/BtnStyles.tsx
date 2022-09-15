@@ -38,8 +38,8 @@ const BtnStyles = (
       FindWidth <= size?.mobile
         ? "16px"
         : FindWidth >= size.laptop
-        ? "20px"
-        : "26px",
+        ? "18px"
+        : "20px",
     lineHeight: "30px",
     display: "flex",
     alignItems: "center",
@@ -52,8 +52,8 @@ const BtnStyles = (
         : FindWidth >= size.laptop
         ? lapheight
           ? height
-          : "50px"
-        : "60px",
+          : "45px"
+        : "45px",
     width: "100%",
     transition: isHovering ? "0.5s" : "0.8s",
     backgroundColor: isHovering ? bghover : bgactive,

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMdSettings } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
 import styles from "./Header.module.scss";
 import headerImg from "../../../Assets/backgrounds/HomeScreenHeader.svg";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 const Header = () => {
+  const [active, setActive] = useState(false);
   return (
     <>
       <div className={styles.container}>
@@ -20,9 +22,14 @@ const Header = () => {
             </div>
             <div className={styles.subHeading}>
               <p>1234567890qwertyuiopasdfghjkl</p>
-              <span>
-                <MdOutlineContentCopy />
-              </span>
+              <CopyToClipboard text="1234567890qwertyuiopasdfghjkl">
+                <span onClick={() => setActive(true)}>
+                  <MdOutlineContentCopy />
+                </span>
+              </CopyToClipboard>
+            </div>
+            <div className={styles.copyText}>
+              {active ? <div style={{ color: "green" }}>Copied.</div> : null}
             </div>
           </div>
         </div>
