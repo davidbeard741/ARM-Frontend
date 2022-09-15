@@ -22,6 +22,7 @@ const CreateNFT: FC = () => {
       id: 2,
     },
   ]);
+  const removeData = () => {};
 
   return (
     <>
@@ -217,18 +218,22 @@ const CreateNFT: FC = () => {
                             }}
                           />
                         )}
-                        <Button
-                          Name="Remove Attribute"
-                          bgactive="transparent"
-                          borderHover="2px solid #ffb718"
-                          Coloractive="#ffb718"
-                          Colorhover="#fff"
-                          bghover="#ffb718"
-                          height="47px"
-                          lapheight="37px"
-                          type="none"
-                          // onClick={()}
-                        />
+                        {newData.length >= 4 ? (
+                          <Button
+                            Name="Remove Attribute"
+                            bgactive="transparent"
+                            borderHover="2px solid #ffb718"
+                            Coloractive="#ffb718"
+                            Colorhover="#fff"
+                            bghover="#ffb718"
+                            height="47px"
+                            lapheight="37px"
+                            type="none"
+                            onClick={() => removeData()}
+                          />
+                        ) : (
+                          ""
+                        )}
                       </div>
                     </div>
                   </div>
