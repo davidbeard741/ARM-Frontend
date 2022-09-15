@@ -5,14 +5,20 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin: 0 5rem;
+  box-sizing: border-box;
+
+  @media screen and (max-width:1024px) {
+    margin: 0 2rem;
+  }
 
   .tabs {
     width: 100%;
     height: auto;
     min-height: 80vh;
     margin: 0rem auto 1.5rem;
-    padding: 2rem 1rem;
-    color: #AAAAAA;
+    padding: 2rem 0rem;
+    color: #1e1d1d;
     font-weight: 500;
 
 
@@ -29,7 +35,7 @@
 
       .nav {
 
-        border-bottom: 1px solid #292937;
+        border-bottom: 1px solid #DEDEDE;
 
         --webkit-backdrop-filter: blur(12px);
         background-color: transparent;
@@ -77,14 +83,14 @@
 
 
         li:hover {
-          color: #ACAEFF;
+          color: #FFB718;
 
         }
 
         li.active {
-          color: #ACAEFF;
-          border-bottom: 2px solid #ACAEFF;
-          font-weight: 600;
+          color: black;
+          border-bottom: 4px solid #FFB718;
+          font-weight: bold;
         }
 
         @media (max-width: 768px) {

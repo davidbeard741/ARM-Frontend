@@ -3,7 +3,7 @@ import Created from "./Created/created";
 import Owned from "./Owned/owned";
 import style from "./Tabs.module.scss";
 function Tabs() {
-  const [activeTab, setActiveTab] = useState("PersonalDetails");
+  const [activeTab, setActiveTab] = useState("Owned");
 
   return (
     <div className={style.container}>
@@ -11,23 +11,22 @@ function Tabs() {
         <div className={style.navWrapper}>
           <ul className={style.nav}>
             <li
-              onClick={() => setActiveTab("Created")}
-              className={activeTab === "Created" ? style.active : ""}
-            >
-              Created
-            </li>
-
-            <li
               onClick={() => setActiveTab("Owned")}
               className={activeTab === "Owned" ? style.active : ""}
             >
               Owned
             </li>
+            <li
+              onClick={() => setActiveTab("Created")}
+              className={activeTab === "Created" ? style.active : ""}
+            >
+              Created
+            </li>
           </ul>
         </div>
         <div className="outlet">
-          {activeTab === "Created" && <Created />}
           {activeTab === "Owned" && <Owned />}
+          {activeTab === "Created" && <Created />}
         </div>
       </div>
     </div>
