@@ -1,38 +1,9 @@
 .container {
+    width: 100%;
+
     .wrapper {
-        .cardWrapper {
-            background: #FAFAFA;
-            box-shadow: 2.39644px 3.19525px 8.78694px rgba(0, 0, 0, 0.25);
-            border-radius: 20.7691px;
-            width: 100%;
-            max-width: 303px;
-            height: 380px;
+        width: 100%;
 
-            img {
-                width: 284px;
-                height: 300px;
-                object-fit: contain;
-                filter: drop-shadow(1.59762px 3.19525px 6.3905px rgba(0, 0, 0, 0.25));
-                border-radius: 20.7691px;
-            }
 
-            .textWrapper {
-                label {
-                    font-weight: 600;
-                    font-size: 19.1715px;
-                    line-height: 23px;
-                    text-transform: capitalize;
-                    color: #000000;
-                }
-
-                p {
-                    font-weight: 400;
-                    font-size: 12.2719px;
-                    line-height: 15px;
-                    text-transform: capitalize;
-                    color: #9A9A9A;
-                }
-            }
-        }
     }
 }
