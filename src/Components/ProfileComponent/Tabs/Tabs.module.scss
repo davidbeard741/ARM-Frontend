@@ -1,0 +1,97 @@
+.container {
+  width: auto;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .tabs {
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    margin: 0rem auto 1.5rem;
+    padding: 2rem 1rem;
+    color: #AAAAAA;
+    font-weight: 500;
+
+
+
+    @media (max-width: 769px) {
+      padding: 2rem 0;
+
+    }
+
+    .navWrapper {
+      overflow-y: hidden;
+      overflow-x: auto;
+      width: 100%;
+
+      .nav {
+
+        border-bottom: 1px solid #292937;
+
+        --webkit-backdrop-filter: blur(12px);
+        background-color: transparent;
+        width: fit-content !important;
+        min-width: 100%;
+        margin: 0 auto 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 2.5rem;
+        padding: 0;
+
+        li {
+          padding: 0 1.5rem;
+          display: flex;
+          white-space: nowrap;
+          text-align: center;
+          align-items: center !important;
+          justify-content: center !important;
+          height: 60px !important;
+          list-style: none;
+          cursor: pointer;
+          transition: all 0.7s;
+          border-bottom: 2px solid transparent;
+
+          @media (max-width: 530px) {
+            display: flex;
+            text-align: center;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 60px !important;
+            font-size: 0.9rem;
+            padding: 0;
+
+          }
+
+          @media (min-width: 530px) and (max-width: 1100px) {
+            display: flex;
+            text-align: center;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 0.9rem;
+          }
+        }
+
+
+        li:hover {
+          color: #ACAEFF;
+
+        }
+
+        li.active {
+          color: #ACAEFF;
+          border-bottom: 2px solid #ACAEFF;
+          font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+          width: 90%;
+        }
+      }
+    }
+
+  }
+}

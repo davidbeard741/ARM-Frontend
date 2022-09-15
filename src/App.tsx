@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "./Components/_common/scrollToTop";
 import Explore from "./Pages/Explore/Explore";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   const { metaplex } = useMetaplex();
@@ -40,6 +41,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/create" element={<Create />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </BrowserRouter>

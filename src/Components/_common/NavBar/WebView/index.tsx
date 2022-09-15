@@ -33,7 +33,9 @@ const WebView = () => {
               <Link to="/create">Create NFT</Link>
             </div>
             <div className={styles.profileWrapper}>
-              <img src={profileIcon} alt="" />
+              <Link to="/profile">
+                <img src={profileIcon} alt="" />
+              </Link>
             </div>
             <div className={styles.btn}>
               {/* <Button
