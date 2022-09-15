@@ -23,7 +23,6 @@ export const createNFT = async (params: {
     name: string;
     description: string;
     symbol: string;
-    // imageURI: string;
     files: any;
   };
 }) => {
@@ -38,7 +37,7 @@ export const createNFT = async (params: {
     })
     .run();
   toast.success("Uploading Metadata");
-  // Ref: The Nft Mode: https://github.com/metaplex-foundation/js#the-nft-model
+
   const { nft } = await params.metaplex
     .nfts()
     .create({
@@ -49,9 +48,6 @@ export const createNFT = async (params: {
     })
     .run();
   toast.success("NFT Created");
-  // [Mock] Use following if active ".use(mockStorage())".
-  // const fakeNft = await metaplex.storage().download(uri);
-  // console.log('fakeNft =>', fakeNft.buffer.toString());
 
   console.log("uri =>", uri);
   console.log("nft =>", nft);
