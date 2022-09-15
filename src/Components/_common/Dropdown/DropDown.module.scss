@@ -1,5 +1,5 @@
 .dropdown {
-  padding: 12px 0px;
+  padding: 5px 0px;
   position: relative;
   user-select: none;
   cursor: pointer;
@@ -7,10 +7,10 @@
 
   .dropdownbtn {
     display: flex;
-    border-radius: 0px;
+    border-radius: 3px;
     background: transparent;
     border: 1px solid #454545;
-    padding: 10px 10px;
+    padding: 5px 10px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,7 @@
       resize: none;
       outline: none;
       color: #454545;
-      font-weight: bold;
+      font-weight: 500;
       display: flex;
       flex: 1;
       appearance: none;
@@ -42,24 +42,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      // padding-top: 3.5px;
 
       .leftIcon {
-        font-size: 20px;
-        color: black;
+        font-size: 25px;
+        color: #FFB718;
         rotate: 180deg;
-        // max-width: 20px;
-        // min-width: 20px;
-        // max-height: 15px;
-        // object-fit: none;
-        // height: auto;
+        text-align: center;
+
       }
     }
 
     .withRightIcon {
       max-width: 20px;
       height: auto;
-      font-size: 20px;
-      color: black;
+      font-size: 22px;
+      color: #FFB718;
+      padding: 0;
+      margin: 0;
     }
   }
 

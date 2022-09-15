@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiFillCaretDown } from "react-icons/ai";
+import { FiChevronDown } from "react-icons/fi";
 import styles from "./DropDown.module.scss";
 interface prop {
   selected?: {} | any;
@@ -19,13 +19,13 @@ const DropDown = (Props: prop) => {
         {showRightIcon === false ? null : (
           <div className={styles.imgContainer}>
             <div className={styles.leftIcon}>
-              <AiFillCaretDown />
+              <FiChevronDown />
             </div>
           </div>
         )}
         <span>{selected}</span>
         <div className={styles.withRightIcon}>
-          <AiFillCaretDown />
+          <FiChevronDown />
         </div>
       </div>
 

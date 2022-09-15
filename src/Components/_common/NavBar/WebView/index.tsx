@@ -20,13 +20,22 @@ const WebView = () => {
           <div className={styles.rightMenuWrapper}>
             <div
               className={
+                pathname === "/explore" ? styles.active : styles.menuItem
+              }
+            >
+              <Link to="/explore">Explore</Link>
+            </div>
+            <div
+              className={
                 pathname === "/create" ? styles.active : styles.menuItem
               }
             >
               <Link to="/create">Create NFT</Link>
             </div>
             <div className={styles.profileWrapper}>
-              <img src={profileIcon} alt="" />
+              <Link to="/profile">
+                <img src={profileIcon} alt="" />
+              </Link>
             </div>
             <div className={styles.btn}>
               {/* <Button
