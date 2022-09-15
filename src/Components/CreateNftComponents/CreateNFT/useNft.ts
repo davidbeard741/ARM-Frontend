@@ -10,17 +10,7 @@ const useNft = () => {
   const { metaplex } = useMetaplex();
   const { connection } = useConnection();
   const [loading, setLoading] = useState(false);
-  const onClickCreate = async (e: any) => {
-    await createNFT({
-      metaplex: metaplex!,
-      metadata: {
-        name: "Test nft",
-        description: "My description",
-        symbol: "MYNFT",
-        files: e.target.files,
-      },
-    });
-  };
+
   const formikSchema = yup.object({
     name: yup.string().required("name required"),
     symbol: yup.string().required("symbol required"),
@@ -48,6 +38,7 @@ const useNft = () => {
             files: values.files,
           },
         });
+        formik.resetForm();
         setLoading(false);
       } catch (error) {
         console.log("Error while creating error:", error);
