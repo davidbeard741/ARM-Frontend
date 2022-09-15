@@ -48,6 +48,7 @@ const useNft = () => {
             files: values.files,
           },
         });
+        formik.resetForm();
         setLoading(false);
       } catch (error) {
         console.log("Error while creating error:", error);
