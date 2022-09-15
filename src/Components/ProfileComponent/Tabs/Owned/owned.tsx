@@ -11,6 +11,7 @@ import { useMetaplex } from "../../../../hooks/useMetaplex";
 import axios, { AxiosResponse } from "axios";
 import { ArweaveNFTRes } from "../../../../types";
 import { useWallet } from "@solana/wallet-adapter-react";
+import NoDataFound from "../../../_common/noData/noDataFound";
 
 const Owned = () => {
   const { metaplex } = useMetaplex();
@@ -54,6 +55,9 @@ const Owned = () => {
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
+          {/* {[...Array(0)] ? (
+            <NoDataFound />
+          ) : ( */}
           <div className={styles.cardWrapper}>
             {ownedNFTs.map((item, index) => (
               <NftCard
@@ -65,6 +69,7 @@ const Owned = () => {
               />
             ))}
           </div>
+          {/* )} */}
         </div>
       </div>
     </>
