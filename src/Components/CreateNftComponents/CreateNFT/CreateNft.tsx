@@ -28,7 +28,7 @@ const CreateNFT: FC = () => {
   return (
     <>
       <form className={styles.container} onSubmit={formik.handleSubmit}>
-        {!loading ? (
+        {loading ? (
           <div className={styles.loader}>
             <ColorRing
               visible={true}
