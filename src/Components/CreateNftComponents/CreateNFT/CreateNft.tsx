@@ -133,10 +133,9 @@ const CreateNFT: FC = () => {
                     </div>
                   </div>
 
-                  <div className={styles.advanceinfoWrapper}>
+                  {/* <div className={styles.advanceinfoWrapper}>
                     <label>Advanced Information</label>
                     <div className={styles.inputwrapper}>
-                      {/* <p>URL (External)</p> */}
                       <Input
                         type='text'
                         style={{ height: "45px" }}
@@ -146,7 +145,6 @@ const CreateNFT: FC = () => {
                     </div>
                     <div className={styles.titleWrapper}>
                       <div className={styles.inputwrapper}>
-                        {/* <p>Collectible Group</p> */}
                         <Input
                           style={{ height: "45px" }}
                           type='text'
@@ -156,7 +154,6 @@ const CreateNFT: FC = () => {
                       </div>
 
                       <div className={styles.inputwrapper}>
-                        {/* <p>Identifier Name</p> */}
                         <Input
                           style={{ height: "45px" }}
                           type='text'
@@ -165,29 +162,31 @@ const CreateNFT: FC = () => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className={styles.attributesWrapper}>
-                    <label>Attributes</label>
+                    {/* <label>Attributes</label> */}
                     <div className={styles.inputs}>
-                      {newData.map(item => (
-                        <>
-                          <div className={styles.inputwrapper} key={item.id}>
-                            {/* <p>{item.heading}</p> */}
-                            <Input
-                              style={{ height: "45px" }}
-                              type='text'
-                              Name='name'
-                              placeholder={item.name}
-                            />
-                          </div>
-                        </>
-                      ))}
+                      {
+                        // newData.map(item => (
+                        //   <>
+                        //     <div className={styles.inputwrapper} key={item.id}>
+                        //       {/* <p>{item.heading}</p> */}
+                        //       <Input
+                        //         style={{ height: "45px" }}
+                        //         type='text'
+                        //         Name='name'
+                        //         placeholder={item.name}
+                        //       />
+                        //     </div>
+                        //   </>
+                        // ))
+                      }
                     </div>
 
-                    <div className={styles.btnWrapper}>
-                      <div className={styles.btn}>
-                        {newData.length >= 12 ? (
+                    {/* <div className={styles.btnWrapper}>
+                      <div className={styles.btn}> */}
+                    {/* {newData.length >= 12 ? (
                           " "
                         ) : (
                           <Button
@@ -216,8 +215,8 @@ const CreateNFT: FC = () => {
                               ]);
                             }}
                           />
-                        )}
-                        {newData.length >= 4 ? (
+                        )} */}
+                    {/* {newData.length >= 4 ? (
                           <Button
                             Name='Remove Attribute'
                             bgactive='transparent'
@@ -232,9 +231,9 @@ const CreateNFT: FC = () => {
                           />
                         ) : (
                           ""
-                        )}
-                      </div>
-                    </div>
+                        )} */}
+                    {/* </div>
+                    </div> */}
                   </div>
                 </div>
 
