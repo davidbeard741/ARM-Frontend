@@ -81,3 +81,11 @@ export const fundMe = async (metaplex: Metaplex, connection: Connection) => {
     signature: airdropSignature,
   });
 };
+
+export const findAllByCreator = async (metaplex: Metaplex) => {
+  let nfts = await metaplex
+    .nfts()
+    .findAllByCreator({ creator: metaplex.identity().publicKey })
+    .run();
+  console.log(nfts);
+};
