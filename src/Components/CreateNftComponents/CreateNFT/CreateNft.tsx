@@ -6,6 +6,7 @@ import Input from "../../_common/Input/input";
 import LoaderSpinner from "../../_common/loaderSpinner/loaderSpinner";
 import styles from "./nft.module.scss";
 import useNft from "./useNft";
+import { ColorRing } from "react-loader-spinner";
 
 const CreateNFT: FC = () => {
   const { formik, loading } = useNft();
@@ -26,8 +27,24 @@ const CreateNFT: FC = () => {
   return (
     <>
       <form className={styles.container} onSubmit={formik.handleSubmit}>
-        {loading ? (
-          <LoaderSpinner />
+        {!loading ? (
+          <div className={styles.loader}>
+            <ColorRing
+              visible={true}
+              height="80"
+              width="100"
+              ariaLabel="blocks-loading"
+              wrapperStyle={{}}
+              wrapperClass="blocks-wrapper"
+              colors={[
+                "rgb(255, 183, 24)",
+                "rgb(255, 183, 24)",
+                "rgb(255, 183, 24)",
+                "rgb(255, 183, 24)",
+                "rgb(255, 183, 24)",
+              ]}
+            />
+          </div>
         ) : (
           <div className={styles.wrapper}>
             <label>Create NFT</label>
