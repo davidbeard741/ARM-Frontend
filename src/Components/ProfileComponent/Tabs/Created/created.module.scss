@@ -1,17 +1,19 @@
 .container {
+  width: 100%;
+
+  .wrapper {
     width: 100%;
-
-    .wrapper {
-        width: 100%;
-
-        .cardWrapper {
-            display: flex;
-            row-gap: 1rem;
-            column-gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    .cardWrapper {
+      display: flex;
+      row-gap: 1rem;
+      column-gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
     }
+  }
 }

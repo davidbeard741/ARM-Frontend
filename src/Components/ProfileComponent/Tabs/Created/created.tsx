@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NftCard from "../../../_common/NftCards/nftCards/nftCard";
 import styles from "./created.module.scss";
+import { ColorRing } from "react-loader-spinner";
 import NFT1 from "../../../../Assets/images/NFT1.svg";
 import { useMetaplex } from "../../../../hooks/useMetaplex";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -21,7 +22,7 @@ const Created = () => {
       let nftRes = await findAllByCreator(metaplex!);
       let fetchedNFTs: any = [];
       await Promise.all(
-        nftRes.map(async nft => {
+        nftRes.map(async (nft) => {
           if (nft.uri) {
             let fetchedNftRes: AxiosResponse<ArweaveNFTRes, any> =
               await axios.get(nft.uri);
@@ -43,6 +44,7 @@ const Created = () => {
   useEffect(() => {
     if (wallet?.adapter.connected) {
       console.log("WORKINGGG");
+      setLoading(true);
       fetchOwnedNFTs();
     }
   }, [wallet?.adapter.connected]);
@@ -51,17 +53,37 @@ const Created = () => {
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <div className={styles.cardWrapper}>
-            {createdNFTs.map((item, index) => (
-              <NftCard
-                item={item}
-                key={index}
-                img={item.image}
-                heading={item.name}
-                subHeading={item.description}
+          {loading ? (
+            <div className={styles.loader}>
+              <ColorRing
+                visible={true}
+                height="80"
+                width="100"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={[
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                ]}
               />
-            ))}
-          </div>
+            </div>
+          ) : (
+            <div className={styles.cardWrapper}>
+              {createdNFTs.map((item, index) => (
+                <NftCard
+                  item={item}
+                  key={index}
+                  img={item.image}
+                  heading={item.name}
+                  subHeading={item.description}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>
