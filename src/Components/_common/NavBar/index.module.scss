@@ -212,6 +212,30 @@
                 color: #fff;
                 text-decoration: none;
 
+                .ConnectBtn {
+                    font-size: 16px !important;
+
+                    font-weight: 400 !important;
+                    line-height: 20px !important;
+                    border-radius: 18px !important;
+                    height: 0% !important;
+                    padding: 0.5rem 0 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+
+
+
+                    img {
+                        display: none !important;
+                    }
+
+                    &:hover {
+                        background-color: transparent !important;
+                    }
+                }
+
                 @media screen and (max-width:560px) {
                     width: 25%;
                     padding: 0.4rem 0;
@@ -237,6 +261,8 @@
                     }
 
                 }
+
+
 
                 span {
                     font-size: 16px;
@@ -322,4 +348,6 @@
             }
         }
     }
+
+
 }

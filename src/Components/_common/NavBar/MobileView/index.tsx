@@ -1,4 +1,4 @@
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
@@ -10,15 +10,12 @@ import styles from "../index.module.scss";
 
 const MobileView = () => {
   const { pathname } = useLocation();
-  const { wallet, disconnect } = useWallet();
-
+  const { wallet, disconnect, connected } = useWallet();
   const [checkWallet, setCheckWallet] = useState<boolean | any>(true);
-  const connection = useConnection();
-
   const handledisconnect = () => {
     if (wallet == null) {
       setCheckWallet(true);
-      // connection?.connect();
+      // connect();
     } else {
       setCheckWallet(!checkWallet);
     }
@@ -28,6 +25,8 @@ const MobileView = () => {
       setCheckWallet(true);
     }
   }, [wallet]);
+
+  console.log(connected);
 
   return (
     <div className={styles.mobileView}>
@@ -55,15 +54,18 @@ const MobileView = () => {
         </Link>
         <label
           className={styles.card}
-          // form={wallet === null ? "walletButton" : ""}
+          form={wallet === null ? "walletButton" : ""}
           style={wallet ? { color: "green" } : { color: "white" }}
           onClick={handledisconnect}
         >
           <GiWallet />
           <span>Wallet</span>
-          {/* <div id="walletButton" style={{ display: "none" }}>
-            <WalletMultiButton />
-          </div> */}
+          {!connected && (
+            <div id="walletButton" style={{ display: "none" }}>
+              <WalletMultiButton />
+            </div>
+          )}
+
           {checkWallet ? (
             ""
           ) : (
