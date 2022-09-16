@@ -1,4 +1,4 @@
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
@@ -11,15 +11,24 @@ import styles from "../index.module.scss";
 const MobileView = () => {
   const { pathname } = useLocation();
   const { wallet, disconnect } = useWallet();
-  const [checkWallet, setCheckWallet] = useState<number | any>(null);
+
+  const [checkWallet, setCheckWallet] = useState<boolean | any>(true);
+  const connection = useConnection();
+
+  const handledisconnect = () => {
+    if (wallet == null) {
+      setCheckWallet(true);
+      // connection?.connect();
+    } else {
+      setCheckWallet(!checkWallet);
+    }
+  };
   useEffect(() => {
-    if (wallet) {
-      setCheckWallet(null);
+    if (wallet == null) {
+      setCheckWallet(true);
     }
   }, [wallet]);
-  const useDropdown = () => {
-    setCheckWallet(1);
-  };
+
   return (
     <div className={styles.mobileView}>
       <div className={styles.wrapper}>
@@ -46,16 +55,16 @@ const MobileView = () => {
         </Link>
         <label
           className={styles.card}
-          form="walletButton"
+          // form={wallet === null ? "walletButton" : ""}
           style={wallet ? { color: "green" } : { color: "white" }}
-          onClick={useDropdown}
+          onClick={handledisconnect}
         >
           <GiWallet />
-          <label form="walletButton">Wallet</label>
-          <div id="walletButton" style={{ display: "none" }}>
+          <span>Wallet</span>
+          {/* <div id="walletButton" style={{ display: "none" }}>
             <WalletMultiButton />
-          </div>
-          {wallet == null || checkWallet == null ? (
+          </div> */}
+          {checkWallet ? (
             ""
           ) : (
             <div className={styles.overFlowCard} onClick={disconnect}>
