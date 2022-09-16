@@ -31,6 +31,9 @@ function Input(Props: prop) {
     imgOnClick,
     onChange,
   } = Props;
+
+  const toSpread = config && config ? config : Props;
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -43,8 +46,7 @@ function Input(Props: prop) {
             disabled={disable}
             name={Name}
             onClick={onClick}
-            {...config}
-            {...Props}
+            {...toSpread}
           />
           {img2 && (
             <span onClick={imgOnClick}>

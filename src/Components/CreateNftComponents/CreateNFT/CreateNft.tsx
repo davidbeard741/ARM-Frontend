@@ -10,30 +10,8 @@ import { ColorRing } from "react-loader-spinner";
 import { isTemplateExpression } from "typescript";
 
 const CreateNFT: FC = () => {
-  const { formik, loading } = useNft();
-  const [newData, setNewData] = useState([
-    {
-      name: "Attribute Name",
-      placeholder: "attributeName",
-      id: 1,
-      value: "",
-    },
-    {
-      name: "Attribute value",
-      placeholder: "attributeValue",
-      id: 2,
-      value: "",
-    },
-  ]);
-  console.log("newdata", newData);
-  const handleChange = (value: any, id: number) => {
-    console.log("hit");
-    console.log(value, id, ">>>>>??hhhh");
-    const index = newData.findIndex((item) => item.id === id);
-    let cloneArray = [...newData];
-    cloneArray[index].value += value;
-    setNewData([...cloneArray]);
-  };
+  const { formik, loading, handleChange, newData, setNewData, error } =
+    useNft();
 
   return (
     <>
@@ -205,18 +183,17 @@ const CreateNFT: FC = () => {
                       {newData.map((item, index) => (
                         <>
                           <div className={styles.inputwrapper} key={item.id}>
-                            {/* <p>{item.heading}</p> */}
                             <Input
                               style={{ height: "45px" }}
                               type="text"
-                              Name="name"
+                              Name={item.name}
                               value={item.value}
                               placeholder={item.name}
-                              config={formik.getFieldProps(
-                                `${item.placeholder}`
-                              )}
+                              // config={formik.getFieldProps(
+                              //   `${item.placeholder}`
+                              // )}
                               onChange={(event: any) => {
-                                handleChange(event.target.value, item.id);
+                                handleChange(event, item.id);
                               }}
                             />
                           </div>
@@ -244,14 +221,18 @@ const CreateNFT: FC = () => {
                                 ...newData,
                                 {
                                   id: newData[newData.length - 1].id + 1,
-                                  name: "Attribute Name",
-                                  placeholder: "attributeName",
+                                  name: ` AttributeName ${
+                                    newData[newData.length - 1].id + 1
+                                  }`,
+                                  placeholder: "Attribute Name",
                                   value: "",
                                 },
                                 {
-                                  id: newData[newData.length - 1].id + 1,
-                                  name: "Attribute value",
-                                  placeholder: "attributeValue",
+                                  id: newData[newData.length - 1].id + 2,
+                                  name: `AttributeValue ${
+                                    newData[newData.length - 1].id + 2
+                                  }`,
+                                  placeholder: "Attribute Value",
                                   value: "",
                                 },
                               ]);
