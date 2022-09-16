@@ -56,12 +56,12 @@
     .rightMenuWrapper {
         display: flex;
         align-items: center;
-        column-gap: 3rem;
+        column-gap: 2rem;
         justify-content: center;
 
-        // @media screen and (max-width:1024px) {
-        //     display: none;
-        // }
+        @media screen and (max-width:1024px) {
+            display: none;
+        }
 
         .active {
             line-height: 19.2px;
@@ -138,9 +138,16 @@
             align-items: center;
             justify-content: center;
 
-            img {
-                width: 30px;
-                height: 30px;
+            .imgWrapper {
+                width: 2.5rem;
+                height: 2.5rem;
+                color: #FFB718;
+                font-size: 25px;
+                background-color: #454545;
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
 

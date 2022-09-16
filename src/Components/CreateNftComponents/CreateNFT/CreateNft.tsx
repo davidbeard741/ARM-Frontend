@@ -7,7 +7,6 @@ import LoaderSpinner from "../../_common/loaderSpinner/loaderSpinner";
 import styles from "./nft.module.scss";
 import useNft from "./useNft";
 import { ColorRing } from "react-loader-spinner";
-import { isTemplateExpression } from "typescript";
 
 const CreateNFT: FC = () => {
   const { formik, loading, handleChange, newData, setNewData, error } =
@@ -134,15 +133,9 @@ const CreateNFT: FC = () => {
                         placeholder="URL (External)"
                         config={formik.getFieldProps("url")}
                       />
-                      {formik.errors.url && formik.touched.url ? (
-                        <div style={{ color: "#E5516B" }}>
-                          {formik.errors.url}
-                        </div>
-                      ) : null}
                     </div>
                     <div className={styles.titleWrapper}>
                       <div className={styles.inputwrapper}>
-                        {/* <p>Collectible Group</p> */}
                         <Input
                           style={{ height: "45px" }}
                           type="text"
@@ -159,7 +152,6 @@ const CreateNFT: FC = () => {
                       </div>
 
                       <div className={styles.inputwrapper}>
-                        {/* <p>Identifier Name</p> */}
                         <Input
                           style={{ height: "45px" }}
                           type="text"
@@ -178,7 +170,7 @@ const CreateNFT: FC = () => {
                   </div>
 
                   <div className={styles.attributesWrapper}>
-                    <label>Attributes</label>
+                    {/* <label>Attributes</label> */}
                     <div className={styles.inputs}>
                       {newData.map((item, index) => (
                         <>

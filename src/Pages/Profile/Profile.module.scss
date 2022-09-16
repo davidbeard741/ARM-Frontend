@@ -1,0 +1,38 @@
+.container {
+    width: 100%;
+
+    .wrapper {
+        width: 100%;
+
+        .imgWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            width: 100%;
+            box-sizing: border-box;
+            // background-image: url("../../Assets/backgrounds/Backgroundop.svg");
+            // background-repeat: no-repeat;
+            // background-position: 147% 114%;
+            // background-size: 50% 88%;
+            // filter: grayscale(1);
+
+            @media screen and (max-width:600px) {
+                background-position: 99% 357%;
+                background-size: 61% 89%;
+            }
+
+            .imgData {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
