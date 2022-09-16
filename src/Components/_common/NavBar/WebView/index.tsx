@@ -40,18 +40,10 @@ const WebView = () => {
                 </div>
               </Link>
             </div>
-            <div className={styles.profileWrapper}>
+            {/* <div className={styles.profileWrapper}>
               <Notification />
-            </div>
+            </div> */}
             <div className={styles.btn}>
-              {/* <Button
-                Name="Connect Wallet"
-                bgactive={"transparent"}
-                bghover={"#000000"}
-                Coloractive={"#000000"}
-                Colorhover={"#fff"}
-                borderActive={"transparent"}
-              /> */}
               <WalletMultiButton />
             </div>
           </div>
