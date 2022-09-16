@@ -2,8 +2,9 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { Link, useLocation } from "react-router-dom";
 import profileIcon from "../../../../Assets/icons/profile.svg";
 import Logo from "../../../../Assets/logo/logo.svg";
+import Notification from "../../Notification/Notification";
 import styles from "../index.module.scss";
-
+import { BsPersonFill } from "react-icons/bs";
 const WebView = () => {
   const { pathname } = useLocation();
   return (
@@ -34,8 +35,13 @@ const WebView = () => {
             </div>
             <div className={styles.profileWrapper}>
               <Link to="/profile">
-                <img src={profileIcon} alt="" />
+                <div className={styles.imgWrapper}>
+                  <BsPersonFill />
+                </div>
               </Link>
+            </div>
+            <div className={styles.profileWrapper}>
+              <Notification />
             </div>
             <div className={styles.btn}>
               {/* <Button
