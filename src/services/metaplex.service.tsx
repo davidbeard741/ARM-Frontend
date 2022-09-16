@@ -3,10 +3,10 @@ import {
   Metaplex,
   toBigNumber,
   toMetaplexFileFromBrowser,
+  UploadMetadataOutput,
 } from "@metaplex-foundation/js";
 import { Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { toast } from "react-toastify";
-
 export const getUserNFTs = async (metaplex: Metaplex) => {
   let myNftsTask = await metaplex
     ?.nfts()
@@ -26,7 +26,7 @@ export const createNFT = async (params: {
     files: any;
   };
 }) => {
-  const { uri } = await params.metaplex
+  const { uri, assetUris } = await params.metaplex
     .nfts()
     .uploadMetadata({
       name: `${params.metadata?.name} Metadata`,
@@ -42,9 +42,10 @@ export const createNFT = async (params: {
     .nfts()
     .create({
       uri: uri,
+      symbol: params.metadata?.symbol,
       name: params.metadata?.name,
       sellerFeeBasisPoints: 500, // Represents 5.00%.
-      maxSupply: toBigNumber(1),
+      maxSupply: toBigNumber(0),
     })
     .run();
   toast.success("NFT Created");
@@ -81,3 +82,18 @@ export const fundMe = async (metaplex: Metaplex, connection: Connection) => {
     signature: airdropSignature,
   });
 };
+
+export const findAllByCreator = async (metaplex: Metaplex) =>
+  metaplex
+    .nfts()
+    .findAllByCreator({ creator: metaplex.identity().publicKey })
+    .run();
+
+export const findAllByOwner = async (metaplex: Metaplex) =>
+  metaplex
+    .nfts()
+    .findAllByOwner({ owner: metaplex.identity().publicKey })
+    .run();
+
+export const findByMint = async (metaplex: Metaplex, mintAddress: any) =>
+  metaplex.nfts().findByMint({ mintAddress }).run();
