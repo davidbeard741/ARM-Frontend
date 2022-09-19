@@ -1,13 +1,10 @@
 import { UploadMetadataInput } from "@metaplex-foundation/js";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { Value } from "sass";
 import * as yup from "yup";
 import { useMetaplex } from "../../../hooks/useMetaplex";
-import { parsePhantomErrors } from "../../../services/error.service";
-import { createNFT } from "../../../services/metaplex.service";
 
 const useNft = () => {
   const { metaplex } = useMetaplex();
@@ -16,20 +13,20 @@ const useNft = () => {
   const [error, setError] = useState(false);
   const [newData, setNewData] = useState([
     {
-      name: "AttributeName",
+      name: "Name",
       placeholder: "attributeName",
       id: 1,
       value: "",
     },
     {
-      name: "AttributeValue",
+      name: "Value",
       placeholder: "attributeValue",
       id: 2,
       value: "",
     },
   ]);
   const handleChange = (event: any, id: number) => {
-    const index = newData.findIndex(item => item.id === id);
+    const index = newData.findIndex((item) => item.id === id);
     let cloneArray = [...newData];
     cloneArray[index].value = event.target.value;
     setNewData(cloneArray);
@@ -60,7 +57,7 @@ const useNft = () => {
       collectible: "",
       identifiername: "",
     },
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       handleSubmitData(values);
     },
   });
@@ -79,7 +76,7 @@ const useNft = () => {
       files: values.files,
       attribute: [...newData],
     };
-
+    console.log("metadata", metadata);
     // try {
     //   setLoading(true);
     //   toast.success("Creating NFT, please wait...");
