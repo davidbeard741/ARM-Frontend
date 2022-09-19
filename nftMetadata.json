@@ -1,0 +1,37 @@
+{
+    "name": "Not bored Ape Metadata",
+    "description": "This is not bored ape",
+    "symbol": "NBA",
+    "image": "https://arweave.net/TaZ1aMqfu7eaCVbGJFe7UT5cHIsGSsKDV4q4zQeMILM",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Clay Grey"
+        },
+        {
+            "trait_type": "Fur",
+            "value": "hero_blue"
+        },
+        {
+            "trait_type": "Clothes",
+            "value": "T Shirt w small cat skull on right"
+        },
+        {
+            "trait_type": "Mouth",
+            "value": "grin "
+        },
+        {
+            "trait_type": "Eyes",
+            "value": "Default Rinnegan"
+        },
+        {
+            "trait_type": "Headgear",
+            "value": "None"
+        },
+        {
+            "trait_type": "Effect",
+            "value": "Lightning Style Fx"
+        }
+    ],
+    "external_url": "https://goonzuki.com"
+}

@@ -3,6 +3,7 @@ import {
   Metaplex,
   toBigNumber,
   toMetaplexFileFromBrowser,
+  UploadMetadataInput,
   UploadMetadataOutput,
 } from "@metaplex-foundation/js";
 import { Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
@@ -19,12 +20,7 @@ export const uploadImage = async (metaplex: Metaplex) => {};
 
 export const createNFT = async (params: {
   metaplex: Metaplex;
-  metadata: {
-    name: string;
-    description: string;
-    symbol: string;
-    files: any;
-  };
+  metadata: UploadMetadataInput;
 }) => {
   try {
     const { uri, assetUris } = await params.metaplex
@@ -33,7 +29,9 @@ export const createNFT = async (params: {
         name: `${params.metadata?.name} Metadata`,
         description: params.metadata?.description,
         symbol: params.metadata?.symbol,
-        // image: params.metadata?.imageURI,
+        external_url: params.metadata?.external_url,
+        attributes: params.metadata?.attributes,
+        //@ts-ignore
         image: await toMetaplexFileFromBrowser(params.metadata.files[0]),
       })
       .run();
@@ -44,7 +42,7 @@ export const createNFT = async (params: {
       .create({
         uri: uri,
         symbol: params.metadata?.symbol,
-        name: params.metadata?.name,
+        name: params.metadata?.name!,
         sellerFeeBasisPoints: 500, // Represents 5.00%.
         maxSupply: toBigNumber(0),
       })

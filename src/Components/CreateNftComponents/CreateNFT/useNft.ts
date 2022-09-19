@@ -1,3 +1,4 @@
+import { UploadMetadataInput } from "@metaplex-foundation/js";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
@@ -28,7 +29,7 @@ const useNft = () => {
     },
   ]);
   const handleChange = (event: any, id: number) => {
-    const index = newData.findIndex((item) => item.id === id);
+    const index = newData.findIndex(item => item.id === id);
     let cloneArray = [...newData];
     cloneArray[index].value = event.target.value;
     setNewData(cloneArray);
@@ -59,7 +60,7 @@ const useNft = () => {
       collectible: "",
       identifiername: "",
     },
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       handleSubmitData(values);
     },
   });
@@ -71,33 +72,29 @@ const useNft = () => {
         return 0;
       }
     }
-    let metadata = {
+    let metadata: UploadMetadataInput = {
       name: values.name,
       description: values.description,
       symbol: values.symbol,
       files: values.files,
       attribute: [...newData],
     };
-    console.log(
-      "🚀 ~ file: useNft.ts ~ line 81 ~ onSubmit: ~ metadata",
-      metadata
-    );
 
-    try {
-      setLoading(true);
-      toast.success("Creating NFT, please wait...");
-      await createNFT({
-        metaplex: metaplex!,
-        metadata: metadata,
-      });
-      formik.resetForm();
-      setLoading(false);
-    } catch (error: any) {
-      toast.dismiss();
-      console.log("Error while creating error:", error.message);
-      toast.error(parsePhantomErrors(error.message), {});
-      setLoading(false);
-    }
+    // try {
+    //   setLoading(true);
+    //   toast.success("Creating NFT, please wait...");
+    //   await createNFT({
+    //     metaplex: metaplex!,
+    //     metadata: metadata,
+    //   });
+    //   formik.resetForm();
+    //   setLoading(false);
+    // } catch (error: any) {
+    //   toast.dismiss();
+    //   console.log("Error while creating error:", error.message);
+    //   toast.error(parsePhantomErrors(error.message), {});
+    //   setLoading(false);
+    // }
   };
   return {
     formik,
