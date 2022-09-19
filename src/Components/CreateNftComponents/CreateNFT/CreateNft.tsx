@@ -173,23 +173,32 @@ const CreateNFT: FC = () => {
                     {/* <label>Attributes</label> */}
                     <div className={styles.inputs}>
                       {newData.map((item, index) => (
-                        <>
-                          <div className={styles.inputwrapper} key={item.id}>
+                        <div key={item.id}>
+                          <div className={styles.inputwrapper}>
                             <Input
                               style={{ height: "45px" }}
                               type='text'
-                              Name={item.name}
-                              value={item.value}
-                              placeholder={item.name}
-                              // config={formik.getFieldProps(
-                              //   `${item.placeholder}`
-                              // )}
+                              value={item.trait_type}
+                              placeholder={item.placeholder_trait_type}
                               onChange={(event: any) => {
-                                handleChange(event, item.id);
+                                //1st priority
+                                handleChange(event, item, "trait_type");
                               }}
                             />
                           </div>
-                        </>
+                          <div className={styles.inputwrapper}>
+                            <Input
+                              style={{ height: "45px" }}
+                              type='text'
+                              value={item.value}
+                              placeholder={item.placeholder_value}
+                              onChange={(event: any) => {
+                                //1st priority
+                                handleChange(event, item, "value");
+                              }}
+                            />
+                          </div>
+                        </div>
                       ))}
                     </div>
 
@@ -212,26 +221,17 @@ const CreateNFT: FC = () => {
                               setNewData([
                                 ...newData,
                                 {
-                                  id: newData[newData.length - 1].id + 1,
-                                  name: ` AttributeName ${
-                                    newData[newData.length - 1].id + 1
-                                  }`,
-                                  placeholder: "Attribute Name",
-                                  value: "",
-                                },
-                                {
-                                  id: newData[newData.length - 1].id + 2,
-                                  name: `AttributeValue ${
-                                    newData[newData.length - 1].id + 2
-                                  }`,
-                                  placeholder: "Attribute Value",
+                                  trait_type: "",
+                                  placeholder_trait_type: "Trait Name",
+                                  placeholder_value: "Trait Value",
+                                  id: newData.length,
                                   value: "",
                                 },
                               ]);
                             }}
                           />
                         )}
-                        {newData.length >= 4 ? (
+                        {newData.length > 1 ? (
                           <Button
                             Name='Remove Attribute'
                             bgactive='transparent'
@@ -243,7 +243,7 @@ const CreateNFT: FC = () => {
                             lapheight='37px'
                             type='button'
                             onClick={() =>
-                              setNewData([...newData.slice(0, -2)])
+                              setNewData([...newData.slice(0, -1)])
                             }
                           />
                         ) : (
