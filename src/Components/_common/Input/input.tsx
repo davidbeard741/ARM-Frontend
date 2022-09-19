@@ -13,6 +13,7 @@ interface prop {
   img2?: any;
   imgOnClick?: (prop: any) => any;
   search?: boolean;
+  onChange?: any;
 }
 function Input(Props: prop) {
   const {
@@ -28,7 +29,11 @@ function Input(Props: prop) {
     img2,
     search,
     imgOnClick,
+    onChange,
   } = Props;
+
+  const toSpread = config && config ? config : Props;
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -40,9 +45,8 @@ function Input(Props: prop) {
             value={value}
             disabled={disable}
             name={Name}
-            // required
             onClick={onClick}
-            {...config}
+            {...toSpread}
           />
           {img2 && (
             <span onClick={imgOnClick}>

@@ -11,10 +11,14 @@ const NftCard = (prop: Props) => {
   return (
     <>
       <div className={styles.cardWrapper}>
-        <img src={img} alt='' />
+        <img src={img} alt="" />
         <div className={styles.textWrapper}>
           <label>{heading}</label>
-          <p>{subHeading}</p>
+          <p>
+            {subHeading && subHeading.length > 20
+              ? subHeading.substring(1, 75) + "..."
+              : subHeading}
+          </p>
         </div>
       </div>
     </>

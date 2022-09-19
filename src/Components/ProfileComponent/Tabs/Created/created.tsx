@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NftCard from "../../../_common/NftCards/nftCards/nftCard";
 import styles from "./created.module.scss";
+import { ColorRing } from "react-loader-spinner";
 import NFT1 from "../../../../Assets/images/NFT1.svg";
 import { useMetaplex } from "../../../../hooks/useMetaplex";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -44,6 +45,7 @@ const Created = () => {
   useEffect(() => {
     if (wallet?.adapter.connected) {
       console.log("WORKINGGG");
+      setLoading(true);
       fetchOwnedNFTs();
     }
   }, [wallet?.adapter.connected]);
@@ -54,9 +56,27 @@ const Created = () => {
         <div className={styles.wrapper}>
           {createdNFTs?.length === 0 ? (
             <NoDataFound />
+          ) : loading ? (
+            <div className={styles.loader}>
+              <ColorRing
+                visible={true}
+                height="80"
+                width="100"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={[
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                ]}
+              />
+            </div>
           ) : (
             <div className={styles.cardWrapper}>
-              {createdNFTs?.map((item, index) => (
+              {createdNFTs.map((item, index) => (
                 <NftCard
                   item={item}
                   key={index}

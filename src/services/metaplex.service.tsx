@@ -26,33 +26,37 @@ export const createNFT = async (params: {
     files: any;
   };
 }) => {
-  const { uri, assetUris } = await params.metaplex
-    .nfts()
-    .uploadMetadata({
-      name: `${params.metadata?.name} Metadata`,
-      description: params.metadata?.description,
-      symbol: params.metadata?.symbol,
-      // image: params.metadata?.imageURI,
-      image: await toMetaplexFileFromBrowser(params.metadata.files[0]),
-    })
-    .run();
-  toast.success("Uploading Metadata");
+  try {
+    const { uri, assetUris } = await params.metaplex
+      .nfts()
+      .uploadMetadata({
+        name: `${params.metadata?.name} Metadata`,
+        description: params.metadata?.description,
+        symbol: params.metadata?.symbol,
+        // image: params.metadata?.imageURI,
+        image: await toMetaplexFileFromBrowser(params.metadata.files[0]),
+      })
+      .run();
+    toast.success("Uploading Metadata");
 
-  const { nft } = await params.metaplex
-    .nfts()
-    .create({
-      uri: uri,
-      symbol: params.metadata?.symbol,
-      name: params.metadata?.name,
-      sellerFeeBasisPoints: 500, // Represents 5.00%.
-      maxSupply: toBigNumber(0),
-    })
-    .run();
-  toast.success("NFT Created");
+    const { nft } = await params.metaplex
+      .nfts()
+      .create({
+        uri: uri,
+        symbol: params.metadata?.symbol,
+        name: params.metadata?.name,
+        sellerFeeBasisPoints: 500, // Represents 5.00%.
+        maxSupply: toBigNumber(0),
+      })
+      .run();
+    toast.success("NFT Created");
 
-  console.log("uri =>", uri);
-  console.log("nft =>", nft);
-  console.log("Mint Address =>", nft.mint.address.toString());
+    console.log("uri =>", uri);
+    console.log("nft =>", nft);
+    console.log("Mint Address =>", nft.mint.address.toString());
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const fundBundlr = async (params: {

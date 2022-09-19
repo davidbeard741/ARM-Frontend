@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./owned.module.scss";
 import NFT1 from "../../../../Assets/images/NFT1.svg";
 import NftCard from "../../../_common/NftCards/nftCards/nftCard";
+import { ColorRing } from "react-loader-spinner";
 import {
   findAllByCreator,
   findAllByOwner,
@@ -48,6 +49,7 @@ const Owned = () => {
   useEffect(() => {
     if (wallet?.adapter.connected) {
       console.log("WORKINGGG");
+      setLoading(true);
       fetchOwnedNFTs();
     }
   }, [wallet?.adapter.connected]);
@@ -55,11 +57,29 @@ const Owned = () => {
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          {ownedNFTs?.length === 0 ? (
+          {ownedNFTs.length === 0 ? (
             <NoDataFound />
+          ) : loading ? (
+            <div className={styles.loader}>
+              <ColorRing
+                visible={true}
+                height="80"
+                width="100"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={[
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                  "rgb(255, 183, 24)",
+                ]}
+              />
+            </div>
           ) : (
             <div className={styles.cardWrapper}>
-              {ownedNFTs?.map((item, index) => (
+              {ownedNFTs.map((item, index) => (
                 <NftCard
                   item={item}
                   key={index}
@@ -70,6 +90,8 @@ const Owned = () => {
               ))}
             </div>
           )}
+
+          {/* )} */}
         </div>
       </div>
     </>
