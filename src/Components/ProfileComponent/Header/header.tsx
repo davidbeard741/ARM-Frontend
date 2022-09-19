@@ -1,10 +1,7 @@
-import React from "react";
-import { IoMdSettings } from "react-icons/io";
-import { MdOutlineContentCopy } from "react-icons/md";
-import styles from "./Header.module.scss";
-import headerImg from "../../../Assets/backgrounds/HomeScreenHeader.svg";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { MdOutlineContentCopy } from "react-icons/md";
 import { toast } from "react-toastify";
+import styles from "./Header.module.scss";
 
 interface Props {
   address: string;
@@ -16,7 +13,12 @@ const Header = (props: Props) => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.imgWrapper}>
-            <img src={headerImg} alt='' />
+            <img
+              src={
+                "https://d3bfm8su4pz02o.cloudfront.net/backgrounds/HomeScreenHeader.svg"
+              }
+              alt=""
+            />
           </div>
           <div className={styles.headingWrapper}>
             <div className={styles.heading}>

@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./categoryCard.module.scss";
-import solanaImg from "../../../../Assets/icons/NFTIcon.svg";
 interface Props {
   img?: any;
   heading?: string;
@@ -24,11 +23,18 @@ const CategoryCard = (prop: Props) => {
           <div className={styles.heading}>Price:</div>
           <div className={styles.mainWrapper}>
             <div className={styles.leftWrapper}>
-              <img src={solanaImg} alt="" />
+              <img
+                src={"https://d3bfm8su4pz02o.cloudfront.net/icons/NFTIcon.svg"}
+                alt=""
+              />
               <label>{Price ? Price : "-"}</label>
             </div>
             <div className={styles.rightWrapper}>
-              Last Sale: <img src={solanaImg} alt="" />{" "}
+              Last Sale:{" "}
+              <img
+                src={"https://d3bfm8su4pz02o.cloudfront.net/icons/NFTIcon.svg"}
+                alt=""
+              />{" "}
               <label>{lastSale ? lastSale : "-"}</label>
             </div>
           </div>

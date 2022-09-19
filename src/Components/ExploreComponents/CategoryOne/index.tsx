@@ -1,7 +1,6 @@
 import React from "react";
 import CategoryCard from "../../_common/NftCards/categoryCard/categoryCard";
 import styles from "./CategoryOne.module.scss";
-import nft1 from "../../../Assets/images/NFT1.svg";
 
 const CategoryOne = () => {
   const eventHandler = () => {
@@ -19,7 +18,7 @@ const CategoryOne = () => {
             {[...Array(4)].map(() => (
               <div className={styles.card}>
                 <CategoryCard
-                  img={nft1}
+                  img={"https://d3bfm8su4pz02o.cloudfront.net/images/NFT1.svg"}
                   heading="LACOSTEMARA#012"
                   subHeading="3 landars skhfsdkjfhjksdhfkshdkfhsdkjhfsdjkfhksjdhfjkshdkfjh sadkfhaskjfhaskjhfkjash"
                   Price="20000"
