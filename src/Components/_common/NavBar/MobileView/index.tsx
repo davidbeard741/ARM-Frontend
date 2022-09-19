@@ -15,7 +15,6 @@ const MobileView = () => {
   const handledisconnect = () => {
     if (wallet == null) {
       setCheckWallet(true);
-      // connect();
     } else {
       setCheckWallet(!checkWallet);
     }

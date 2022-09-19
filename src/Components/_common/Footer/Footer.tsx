@@ -25,7 +25,10 @@ const Footer = () => {
         </div>
         <div className={styles.middleWrapper}>
           <div className={styles.leftWrapper}>
-            <img src={footerImg} alt="" />
+            <img
+              src={"https://d3bfm8su4pz02o.cloudfront.net/logo/footerLogo.svg"}
+              alt=""
+            />
             <p>
               ARM is a premium NFT marketplace for select NFTs to mint, exhibit,
               host

@@ -1,8 +1,4 @@
 import { SwiperSlide } from "swiper/react";
-import icon from "../../../Assets/icons/NFTIcon.svg";
-import NFT1 from "../../../Assets/images/NFT1.svg";
-import NFT2 from "../../../Assets/images/NFT2.svg";
-import NFT3 from "../../../Assets/images/NFT3.svg";
 import Slider from "../../_common/Slider/slider";
 import styles from "./Card.module.scss";
 
@@ -10,28 +6,22 @@ const Card = () => {
   let data = [
     {
       id: 1,
-      img: NFT1,
+      img: "https://d3bfm8su4pz02o.cloudfront.net/images/NFT1.svg",
       value: 0.1525,
-      icon: icon,
+      icon: "https://d3bfm8su4pz02o.cloudfront.net/icons/NFTIcon.svg",
     },
     {
       id: 2,
-      img: NFT2,
+      img: "https://d3bfm8su4pz02o.cloudfront.net/images/NFT2.svg",
       value: 0.1525,
-      icon: icon,
+      icon: "https://d3bfm8su4pz02o.cloudfront.net/icons/NFTIcon.svg",
     },
     {
       id: 3,
-      img: NFT3,
+      img: "https://d3bfm8su4pz02o.cloudfront.net/images/NFT3.svg",
       value: 0.1525,
-      icon: icon,
+      icon: "https://d3bfm8su4pz02o.cloudfront.net/icons/NFTIcon.svg",
     },
-    // {
-    //   id: 3,
-    //   img: NFT3,
-    //   value: 0.1525,
-    //   icon: icon,
-    // },
   ];
   return (
     <div className={styles.container}>

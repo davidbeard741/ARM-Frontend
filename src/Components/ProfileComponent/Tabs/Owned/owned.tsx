@@ -11,7 +11,7 @@ import { useMetaplex } from "../../../../hooks/useMetaplex";
 import axios, { AxiosResponse } from "axios";
 import { ArweaveNFTRes } from "../../../../types";
 import { useWallet } from "@solana/wallet-adapter-react";
-import NoDataFound from "../../../_common/noData/noDataFound";
+import NoDataFound from "../../../_common/noDataGif/noDataFound";
 
 const Owned = () => {
   const { metaplex } = useMetaplex();
@@ -26,7 +26,7 @@ const Owned = () => {
       let nftRes = await findAllByOwner(metaplex!);
       let fetchedNFTs: any = [];
       await Promise.all(
-        nftRes.map(async nft => {
+        nftRes.map(async (nft) => {
           if (nft.uri) {
             let fetchedNftRes: AxiosResponse<ArweaveNFTRes, any> =
               await axios.get(nft.uri);
@@ -55,21 +55,21 @@ const Owned = () => {
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          {/* {[...Array(0)] ? (
+          {ownedNFTs?.length === 0 ? (
             <NoDataFound />
-          ) : ( */}
-          <div className={styles.cardWrapper}>
-            {ownedNFTs.map((item, index) => (
-              <NftCard
-                item={item}
-                key={index}
-                img={item.image}
-                heading={item.name}
-                subHeading={item.description}
-              />
-            ))}
-          </div>
-          {/* )} */}
+          ) : (
+            <div className={styles.cardWrapper}>
+              {ownedNFTs?.map((item, index) => (
+                <NftCard
+                  item={item}
+                  key={index}
+                  img={item.image}
+                  heading={item.name}
+                  subHeading={item.description}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

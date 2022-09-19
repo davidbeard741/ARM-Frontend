@@ -1,7 +1,8 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useMemo } from "react";
-import NoData from "../../Assets/gif/no wifi.gif";
+// import NoData from "../../Assets/gif/no wifi.gif";
+import NoData from "../../Assets/gif/NotConnected.gif";
 import Header from "../../Components/ProfileComponent/Header/header";
 import Tabs from "../../Components/ProfileComponent/Tabs/Tabs";
 import { useMetaplex } from "../../hooks/useMetaplex";
@@ -26,7 +27,12 @@ const Profile = () => {
           {!wallet ? (
             <div className={styles.imgWrapper}>
               <div className={styles.imgData}>
-                <img src={NoData} alt='' />
+                <img
+                  src={
+                    "https://d3bfm8su4pz02o.cloudfront.net/gif/NotConnected.gif"
+                  }
+                  alt=""
+                />
                 <WalletMultiButton />
               </div>
             </div>

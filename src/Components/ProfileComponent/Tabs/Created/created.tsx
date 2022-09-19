@@ -7,6 +7,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { findAllByCreator } from "../../../../services/metaplex.service";
 import { ArweaveNFTRes } from "../../../../types";
 import axios, { AxiosResponse } from "axios";
+import NoDataFound from "../../../_common/noDataGif/noDataFound";
 
 const Created = () => {
   const { metaplex } = useMetaplex();
@@ -21,7 +22,7 @@ const Created = () => {
       let nftRes = await findAllByCreator(metaplex!);
       let fetchedNFTs: any = [];
       await Promise.all(
-        nftRes.map(async nft => {
+        nftRes.map(async (nft) => {
           if (nft.uri) {
             let fetchedNftRes: AxiosResponse<ArweaveNFTRes, any> =
               await axios.get(nft.uri);
@@ -51,17 +52,21 @@ const Created = () => {
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <div className={styles.cardWrapper}>
-            {createdNFTs.map((item, index) => (
-              <NftCard
-                item={item}
-                key={index}
-                img={item.image}
-                heading={item.name}
-                subHeading={item.description}
-              />
-            ))}
-          </div>
+          {createdNFTs?.length === 0 ? (
+            <NoDataFound />
+          ) : (
+            <div className={styles.cardWrapper}>
+              {createdNFTs?.map((item, index) => (
+                <NftCard
+                  item={item}
+                  key={index}
+                  img={item.image}
+                  heading={item.name}
+                  subHeading={item.description}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -1,9 +1,9 @@
 import React from "react";
 import CategoryCard from "../../_common/NftCards/categoryCard/categoryCard";
-import styles from "./CategoryOne.module.scss";
+import styles from "./Categorytwo.module.scss";
 import nft1 from "../../../Assets/images/NFT1.svg";
 
-const CategoryOne = () => {
+const CategoryTwo = () => {
   const eventHandler = () => {
     console.log(">>>>>Clicked");
   };
@@ -12,7 +12,7 @@ const CategoryOne = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.heading}>
-            <label>Category 1</label>
+            <label>Category 2</label>
             <p>See collection</p>
           </div>
           <div className={styles.cardWrapper}>
@@ -35,4 +35,4 @@ const CategoryOne = () => {
   );
 };
 
-export default CategoryOne;
+export default CategoryTwo;

@@ -2,25 +2,86 @@
     width: 100%;
     padding: 0.4rem 5rem;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.5rem;
+
+    @media screen and (min-width:600px) and (max-width:1024px) {
+        padding: 0.4rem 3rem;
+        margin-top: 1rem;
+    }
+
+    @media screen and (max-width:600px) {
+        padding: 0.4rem 2rem;
+        margin-top: 0.5rem;
+    }
 
     .wrapper {
         width: 100%;
-
+        max-width: 1950px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
         .inputWrapper {
             display: flex;
             width: 100%;
             justify-content: space-between;
+            flex-wrap: wrap;
 
             .leftWrapper {
                 display: flex;
                 width: 30%;
                 column-gap: 2rem;
                 justify-content: space-between;
+
+                @media screen and (max-width:1024px) {
+                    width: 100%;
+                    flex-wrap: wrap;
+                }
             }
 
             .rightWrapper {
                 width: 20%;
+
+                @media screen and (max-width:1024px) {
+                    width: 100%;
+                }
+            }
+        }
+
+        .btnWrapper {
+            width: 100%;
+            display: flex;
+            column-gap: 0.7rem;
+            margin-top: 0.5rem;
+
+            button {
+                background: #F2F2F2;
+                border-radius: 4px;
+                border: none;
+                outline: none;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: #FFB718;
+                height:
+                    40px;
+            }
+
+            .resetBtn {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 17px;
+                color: #23262F;
+                display: flex;
+                align-items: center;
+                column-gap: 0.1rem;
+                cursor: pointer;
             }
         }
     }

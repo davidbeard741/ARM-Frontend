@@ -4,6 +4,7 @@
   user-select: none;
   cursor: pointer;
   width: 100%;
+  box-sizing: border-box;
 
   .dropdownbtn {
     display: flex;
@@ -16,6 +17,7 @@
     justify-content: center;
     cursor: pointer;
     color: #454545;
+    box-sizing: border-box;
 
     span {
       width: 100%;
@@ -64,18 +66,21 @@
   }
 
   .dropdowncontent {
+    box-sizing: border-box;
     position: absolute;
     top: 110%;
-    background: #393957;
+    background: #fff;
     border: 1px solid rgba(112, 112, 112, 0.26);
+    backdrop-filter: inherit;
     padding: 10px 5px;
     width: 100%;
-    color: white;
+    color: black;
     max-height: 200px;
     overflow-y: auto;
     text-transform: capitalize;
     scrollbar-width: thin;
     scrollbar-color: #7137f9 #555;
+    z-index: 1;
   }
 
   .dropdownitems {
@@ -85,6 +90,7 @@
   }
 
   .dropdownitems:hover {
-    background-color: #493191;
+    background-color: #FFB718;
+    color: #fff;
   }
 }

@@ -1,12 +1,13 @@
-import React from "react";
 import styles from "./noData.module.scss";
-import img from "../../../Assets/gif/noDataFound.gif";
 const NoDataFound = () => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <img src={img} alt="" />
+          <img
+            src={"https://d3bfm8su4pz02o.cloudfront.net/gif/noDataFound.gif"}
+            alt=""
+          />
           <label>NO Data Found</label>
         </div>
       </div>

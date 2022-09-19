@@ -1,10 +1,7 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { Link, useLocation } from "react-router-dom";
-import profileIcon from "../../../../Assets/icons/profile.svg";
-import Logo from "../../../../Assets/logo/logo.svg";
-import Notification from "../../Notification/Notification";
-import styles from "../index.module.scss";
 import { BsPersonFill } from "react-icons/bs";
+import { Link, useLocation } from "react-router-dom";
+import styles from "../index.module.scss";
 const WebView = () => {
   const { pathname } = useLocation();
   return (
@@ -15,7 +12,11 @@ const WebView = () => {
         <div className={styles.wrapper}>
           <div className={styles.leftContainer}>
             <Link to="/">
-              <img className={styles.logo} src={Logo} alt="logo" />
+              <img
+                className={styles.logo}
+                src={"https://d3bfm8su4pz02o.cloudfront.net/logo/logo.svg"}
+                alt="logo"
+              />
             </Link>
           </div>
           <div className={styles.rightMenuWrapper}>

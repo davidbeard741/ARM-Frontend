@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const BtnStyles = (
-  bghover: any,
-  bgactive: any,
-  Coloractive: any,
-  Colorhover: any,
+  bghover?: any,
+  bgactive?: any,
+  Coloractive?: any,
+  Colorhover?: any,
   borderHover?: any,
   borderActive?: any,
   height?: any,
