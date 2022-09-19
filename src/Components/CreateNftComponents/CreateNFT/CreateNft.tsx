@@ -170,7 +170,7 @@ const CreateNFT: FC = () => {
                   </div>
 
                   <div className={styles.attributesWrapper}>
-                    {/* <label>Attributes</label> */}
+                    <label>Attributes</label>
                     <div className={styles.inputs}>
                       {newData.map((item, index) => (
                         <>
@@ -213,7 +213,7 @@ const CreateNFT: FC = () => {
                                 ...newData,
                                 {
                                   id: newData[newData.length - 1].id + 1,
-                                  name: ` AttributeName ${
+                                  name: `Name ${
                                     newData[newData.length - 1].id + 1
                                   }`,
                                   placeholder: "Attribute Name",
@@ -221,7 +221,7 @@ const CreateNFT: FC = () => {
                                 },
                                 {
                                   id: newData[newData.length - 1].id + 2,
-                                  name: `AttributeValue ${
+                                  name: `Value ${
                                     newData[newData.length - 1].id + 2
                                   }`,
                                   placeholder: "Attribute Value",
