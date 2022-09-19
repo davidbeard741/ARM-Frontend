@@ -1,6 +1,7 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { BsPersonFill } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";
+import Notification from "../../Notification/Notification";
 import styles from "../index.module.scss";
 const WebView = () => {
   const { pathname } = useLocation();

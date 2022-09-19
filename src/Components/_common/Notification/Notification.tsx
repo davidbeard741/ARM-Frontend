@@ -61,7 +61,10 @@ const Notification = (props: Prop) => {
               {notificationData.length == 0 ? (
                 <div className={styles.imgContainer}>
                   <div className={styles.textWrapper}>
-                    <img src={notificationImg} alt="" />
+                    <img
+                      src={"https://d3bfm8su4pz02o.cloudfront.net/gif/bell.gif"}
+                      alt=""
+                    />
                     <label>No Notifications Yet</label>
                     <p>You have no notification from last 30 days.</p>
                   </div>
