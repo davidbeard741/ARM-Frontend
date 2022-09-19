@@ -31,7 +31,7 @@ code {
 }
 /*Slider*/
 .rangeslider__fill {
-  background: #5437a3 !important;
+  background: #ffb718 !important;
 }
 
 .slider {
@@ -45,10 +45,10 @@ code {
 }
 
 .rangeslider__handle {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   background: #ffb718 !important;
-  border: 2px solid #ffb718 !important;
+  border: 0px solid #ffb718 !important;
 }
 
 .rangeslider__handle::after {
@@ -59,12 +59,12 @@ code {
   left: 3px !important;
   top: 3px !important;
   border: none !important;
-  background: #ffb718 !important;
-  color: #ffb718 !important;
+  background: gray !important;
+  color: gray !important;
 }
 
 .rangeslider.rangeslider-horizontal {
-  height: 15px !important;
-  background: #ffb718 !important;
+  height: 10px !important;
+  background: gray !important;
   border-radius: 10.5px !important;
 }

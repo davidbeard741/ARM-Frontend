@@ -13,7 +13,7 @@ const ProgressBar = () => {
   return (
     <div className="slider">
       <Slider
-        min={10}
+        min={0}
         max={50}
         value={value}
         onChangeStart={handleChangeStart}
