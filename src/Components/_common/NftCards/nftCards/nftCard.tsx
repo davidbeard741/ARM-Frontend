@@ -5,12 +5,13 @@ interface Props {
   heading?: string;
   subHeading?: string;
   item: any;
+  onClick?: () => void;
 }
 const NftCard = (prop: Props) => {
-  const { img, heading, subHeading } = prop;
+  const { img, heading, subHeading, onClick } = prop;
   return (
     <>
-      <div className={styles.cardWrapper}>
+      <div className={styles.cardWrapper} onClick={onClick}>
         <img src={img} alt="" />
         <div className={styles.textWrapper}>
           <label>{heading}</label>

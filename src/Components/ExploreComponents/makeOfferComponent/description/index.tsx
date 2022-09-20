@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./description.module.scss";
 import { RiHeart2Line } from "react-icons/ri";
 import { RiHeart2Fill } from "react-icons/ri";
+import DropDownTab from "../../../_common/DropDownTab";
 let data = [
   {
     title: "Contract Address",
@@ -66,6 +67,19 @@ const Description = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className={styles.properties}>
+          <DropDownTab style={{ minHeight: "260px" }} title="Properties">
+            <div className={styles.cardWrapper}>
+              {[...Array(6)].map((item) => (
+                <div className={styles.card}>
+                  <label>Enviroment</label>
+                  <span>Forest</span>
+                  <p>20% have this trait</p>
+                </div>
+              ))}
+            </div>
+          </DropDownTab>
         </div>
       </div>
     </div>

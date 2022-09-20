@@ -7,9 +7,10 @@
   height: 400px;
   padding: 0.5rem;
   box-sizing: border-box;
-
+  cursor: pointer;
   @media screen and (max-width: 600px) {
     max-width: 245px;
+    cursor: unset;
   }
 
   img {
@@ -32,9 +33,11 @@
       font-size: 19.1715px;
       text-transform: capitalize;
       color: #000000;
+      cursor: pointer;
     }
 
     p {
+      cursor: pointer;
       padding: 0 0 0.5rem 0;
       margin: 0;
       font-weight: 400;

@@ -19,7 +19,6 @@ const MakeOffer = () => {
           {" "}
           <DropDownTab title="Item Activity">
             <div className={styles.dropDownWrapper}>
-              {" "}
               <table cellSpacing="0">
                 <tr>
                   <th>Event</th>

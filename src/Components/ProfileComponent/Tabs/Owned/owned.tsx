@@ -13,12 +13,14 @@ import axios, { AxiosResponse } from "axios";
 import { ArweaveNFTRes } from "../../../../types";
 import { useWallet } from "@solana/wallet-adapter-react";
 import NoDataFound from "../../../_common/noDataGif/noDataFound";
+import { useNavigate } from "react-router-dom";
 
 const Owned = () => {
   const { metaplex } = useMetaplex();
   const { wallet } = useWallet();
   const [ownedNFTs, setOwnedNFTs] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const fetchOwnedNFTs = async () => {
     // console.log("Fetching nfts:", metaplex?.identity()?.publicKey);
@@ -81,6 +83,7 @@ const Owned = () => {
             <div className={styles.cardWrapper}>
               {ownedNFTs.map((item, index) => (
                 <NftCard
+                  onClick={() => navigate("/make-offer")}
                   item={item}
                   key={index}
                   img={item.image}
