@@ -1,26 +1,18 @@
-import React, { Component, useState } from "react";
-import Slider from "react-rangeslider";
+import React from "react";
+import Slider, { SliderProps } from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
 
-const ProgressBar = () => {
-  const [value, setValue] = useState(10);
-  const handleChangeStart = () => {
-    console.log("Change event started");
-  };
-  const handleChangeComplete = () => {
-    console.log("Change event completed");
-  };
+interface Props extends SliderProps {
+  sliderText: string;
+}
+
+const ProgressBar = (props: Props) => {
   return (
-    <div className="slider">
-      <Slider
-        min={0}
-        max={50}
-        value={value}
-        onChangeStart={handleChangeStart}
-        onChange={setValue}
-        onChangeComplete={handleChangeComplete}
-      />
-      <div style={{ color: "black" }}>{value}</div>
+    <div className='slider'>
+      <Slider {...props} />
+      <div
+        style={{ color: "black" }}
+      >{`${props.sliderText} ${props.value}%`}</div>
     </div>
   );
 };

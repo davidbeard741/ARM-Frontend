@@ -23,7 +23,7 @@ export const createNFT = async (params: {
   metadata: UploadMetadataInput;
 }) => {
   try {
-    const { uri, assetUris } = await params.metaplex
+    const { uri } = await params.metaplex
       .nfts()
       .uploadMetadata({
         name: `${params.metadata?.name} Metadata`,
@@ -35,7 +35,7 @@ export const createNFT = async (params: {
         image: await toMetaplexFileFromBrowser(params.metadata.files[0]),
       })
       .run();
-    toast.success("Uploading Metadata");
+    toast.success("Finalizing...");
 
     const { nft } = await params.metaplex
       .nfts()
@@ -43,7 +43,7 @@ export const createNFT = async (params: {
         uri: uri,
         symbol: params.metadata?.symbol,
         name: params.metadata?.name!,
-        sellerFeeBasisPoints: 500, // Represents 5.00%.
+        sellerFeeBasisPoints: params.metadata.seller_fee_basis_points!, // Represents 5.00%.
         maxSupply: toBigNumber(0),
       })
       .run();
