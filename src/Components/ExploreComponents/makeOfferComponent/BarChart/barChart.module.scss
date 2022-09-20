@@ -1,0 +1,16 @@
+.container {
+  @apply overflow-auto w-[400px] sm:w-full;
+  // width: 400px !important;
+  height: 270px;
+
+  .wrapper {
+    // overflow: hidden;  \
+    border-radius: 23px;
+    background: transparent;
+    backdrop-filter: blur(13px);
+    --webkit-backdrop-filter: blur(13px);
+    background-color: #D26BF5 !important;
+    margin: 0rem 0rem;
+    font-weight: lighter;
+  }
+}

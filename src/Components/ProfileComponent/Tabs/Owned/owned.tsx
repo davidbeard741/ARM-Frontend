@@ -13,12 +13,14 @@ import axios, { AxiosResponse } from "axios";
 import { ArweaveNFTRes } from "../../../../types";
 import { useWallet } from "@solana/wallet-adapter-react";
 import NoDataFound from "../../../_common/noDataGif/noDataFound";
+import { useNavigate } from "react-router-dom";
 
 const Owned = () => {
   const { metaplex } = useMetaplex();
   const { wallet } = useWallet();
   const [ownedNFTs, setOwnedNFTs] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const fetchOwnedNFTs = async () => {
     // console.log("Fetching nfts:", metaplex?.identity()?.publicKey);
@@ -27,7 +29,7 @@ const Owned = () => {
       let nftRes = await findAllByOwner(metaplex!);
       let fetchedNFTs: any = [];
       await Promise.all(
-        nftRes.map(async (nft) => {
+        nftRes.map(async nft => {
           if (nft.uri) {
             let fetchedNftRes: AxiosResponse<ArweaveNFTRes, any> =
               await axios.get(nft.uri);
@@ -63,11 +65,11 @@ const Owned = () => {
             <div className={styles.loader}>
               <ColorRing
                 visible={true}
-                height="80"
-                width="100"
-                ariaLabel="blocks-loading"
+                height='80'
+                width='100'
+                ariaLabel='blocks-loading'
                 wrapperStyle={{}}
-                wrapperClass="blocks-wrapper"
+                wrapperClass='blocks-wrapper'
                 colors={[
                   "rgb(255, 183, 24)",
                   "rgb(255, 183, 24)",
@@ -81,6 +83,7 @@ const Owned = () => {
             <div className={styles.cardWrapper}>
               {ownedNFTs.map((item, index) => (
                 <NftCard
+                  onClick={() => navigate("/make-offer", { state: item })}
                   item={item}
                   key={index}
                   img={item.image}

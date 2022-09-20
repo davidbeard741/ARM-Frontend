@@ -31,21 +31,21 @@ const MobileView = () => {
     <div className={styles.mobileView}>
       <div className={styles.wrapper}>
         <Link
-          to="/explore"
+          to='/explore'
           className={pathname === "/explore" ? styles.active : styles.card}
         >
           <MdOutlineTravelExplore />
           <label>Explore</label>
         </Link>
         <Link
-          to="/create"
+          to='/create'
           className={pathname === "/create" ? styles.active : styles.card}
         >
           <IoIosCreate />
           <label>Create NFT</label>
         </Link>
         <Link
-          to="/profile"
+          to='/profile'
           className={pathname === "/profile" ? styles.active : styles.card}
         >
           <CgProfile />
@@ -60,7 +60,7 @@ const MobileView = () => {
           <GiWallet />
           <span>Wallet</span>
           {!connected && (
-            <div id="walletButton" style={{ display: "none" }}>
+            <div id='walletButton' style={{ display: "none" }}>
               <WalletMultiButton />
             </div>
           )}

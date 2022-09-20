@@ -26,7 +26,7 @@ export const createNFT = async (params: {
     const { uri } = await params.metaplex
       .nfts()
       .uploadMetadata({
-        name: `${params.metadata?.name} Metadata`,
+        name: `${params.metadata?.name}`,
         description: params.metadata?.description,
         symbol: params.metadata?.symbol,
         external_url: params.metadata?.external_url,

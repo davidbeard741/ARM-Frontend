@@ -1,59 +1,58 @@
 .container {
+  width: 100%;
+
+  .wrapper {
     width: 100%;
 
-    .wrapper {
-        width: 100%;
+    .headerWrapper {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #cccbcb;
+      border-radius: 9px 9px 0px 0px;
+      padding: 0.6rem 0.8rem;
+      box-sizing: border-box;
 
-        .headerWrapper {
-            display: flex;
-            justify-content: space-between;
-            border: 1px solid #9A9A9A;
-            border-radius: 9px 9px 0px 0px;
-            padding: 0.4rem 0.8rem;
-            box-sizing: border-box;
+      .leftWrapper {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #000000;
+        width: 98%;
+      }
 
-            .leftWrapper {
-                font-style: normal;
-                font-weight: 600;
-                font-size: 18px;
-                color: #000000;
-                width: 70%;
-            }
+      .rightWrapper {
+        cursor: pointer;
+        width: 2%;
+        align-self: center;
+        display: flex;
+        justify-content: flex-end;
 
-            .rightWrapper {
-                width: 30%;
-                align-self: center;
-                display: flex;
-                justify-content: flex-end;
-
-                .imgActive {
-                    transition: 0.4s;
-                    rotate: 0deg;
-                    cursor: pointer;
-                    width: 18px;
-                    height: 18px;
-                }
-
-                .imgNotActive {
-                    transition: 0.5s;
-                    rotate: 180deg;
-                    cursor: pointer;
-                    width: 18px;
-                    height: 18px;
-                    z-index: 1;
-                }
-            }
-
-
-
-
-
+        .imgActive {
+          transition: 0.4s;
+          rotate: 0deg;
+          width: 18px;
+          height: 18px;
         }
 
-        .bottomWrapper {
-            width: 100%;
-            overflow: auto;
-            max-height: 300px;
+        .imgNotActive {
+          transition: 0.5s;
+          rotate: 180deg;
+          width: 18px;
+          height: 18px;
+          z-index: 1;
         }
+      }
     }
+
+    .bottomWrapper {
+      width: 100%;
+      overflow: auto;
+      min-height: 200px;
+      max-height: 400px;
+      min-width: 400px;
+      width: 100%;
+      background: #f9f9f9;
+      border-radius: 0px 0px 9px 9px;
+    }
+  }
 }

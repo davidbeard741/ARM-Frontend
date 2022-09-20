@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../_common/NftCards/categoryCard/categoryCard";
 import styles from "./CategoryOne.module.scss";
 
 const CategoryOne = () => {
+  const navigation = useNavigate()
   const eventHandler = () => {
-    console.log(">>>>>Clicked");
+    navigation("/make-offer")
   };
   return (
     <>
