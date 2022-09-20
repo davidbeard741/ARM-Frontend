@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "./Components/_common/scrollToTop";
 import Explore from "./Pages/Explore/Explore";
 import Profile from "./Pages/Profile/Profile";
+import MakeOffer from "./Components/ExploreComponents/makeOfferComponent";
 
 function App() {
   const { metaplex } = useMetaplex();
@@ -42,6 +43,7 @@ function App() {
         <Route path="/create" element={<Create />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/make-offer" element={<MakeOffer />} />
       </Routes>
       <Footer />
     </BrowserRouter>

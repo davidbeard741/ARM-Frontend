@@ -1,9 +1,8 @@
 import { UploadMetadataInput } from "@metaplex-foundation/js";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { Value } from "sass";
 import * as yup from "yup";
 import { useMetaplex } from "../../../hooks/useMetaplex";
 import { parsePhantomErrors } from "../../../services/error.service";
@@ -58,7 +57,7 @@ const useNft = () => {
       collectible: "",
       identifiername: "",
     },
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       handleSubmitData(values);
     },
   });
@@ -75,7 +74,6 @@ const useNft = () => {
       trait_type: item.trait_type,
       value: item.value,
     }));
-    console.log(values.url);
     let metadata: UploadMetadataInput = {
       name: values.name,
       description: values.description,
@@ -100,6 +98,7 @@ const useNft = () => {
       toast.error(parsePhantomErrors(error.message), {});
       setLoading(false);
     }
+
   };
   return {
     formik,

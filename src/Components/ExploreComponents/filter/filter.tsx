@@ -5,7 +5,7 @@ import styles from "./filter.module.scss";
 import { MdCancel } from "react-icons/md";
 const Filter = () => {
   const [sortBy, setSortBy] = useState("Sort By");
-  const sortOptions = ["Low to Hight", "High to Low", "New", "Old"];
+  const sortOptions = ["Low to High", "High to Low", "New", "Old"];
   const [filterBy, setFilterBy] = useState("Filter");
   const filterOptions = [
     "Top",

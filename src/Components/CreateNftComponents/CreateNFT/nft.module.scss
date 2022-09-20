@@ -257,6 +257,20 @@
                             }
                         }
 
+                        .inputProgressWrapper {
+                            width: 100%;
+                            display: flex;
+                            column-gap: 2.5rem;
+
+                            .inputCom {
+                                width: 50%;
+                            }
+
+                            .progComp {
+                                width: 50%;
+                            }
+                        }
+
                         .inputwrapper {
                             width: 100% !important;
 

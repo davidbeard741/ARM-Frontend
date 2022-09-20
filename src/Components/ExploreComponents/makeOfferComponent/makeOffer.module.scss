@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 5rem 3rem 5rem;
+
+    @media screen and (max-width:1024px) {
+        padding: 1rem 2rem;
+    }
+
+    .wrapper {
+        max-width: 1950px;
+        width: 100%;
+        display: flex;
+        justify-content: baseline;
+
+        .leftWrapper {
+            width: 40%;
+        }
+
+        .rightWrapper {
+            width: 60%;
+        }
+    }
+}

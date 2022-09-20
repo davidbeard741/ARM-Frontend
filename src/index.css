@@ -29,3 +29,42 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffb718;
 }
+/*Slider*/
+.rangeslider__fill {
+  background: #ffb718 !important;
+}
+
+.slider {
+  width: 100%;
+}
+
+.value {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rangeslider__handle {
+  width: 5px;
+  height: 5px;
+  background: #ffb718 !important;
+  border: 0px solid #ffb718 !important;
+}
+
+.rangeslider__handle::after {
+  height: 0px !important;
+  width: 0px !important;
+  top: 1px !important;
+  border: transparent !important;
+  left: 3px !important;
+  top: 3px !important;
+  border: none !important;
+  background: gray !important;
+  color: gray !important;
+}
+
+.rangeslider.rangeslider-horizontal {
+  height: 10px !important;
+  background: gray !important;
+  border-radius: 10.5px !important;
+}
