@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
 const YUP_CREATE_NFT_VALIDATION = yup.object({
   name: yup
@@ -15,4 +16,20 @@ const YUP_CREATE_NFT_VALIDATION = yup.object({
   royality: yup.number(),
 });
 
-export { YUP_CREATE_NFT_VALIDATION };
+const validateDynamicAttributesForm = (attributesFields: any) => {
+  for (let i = 0; i <= attributesFields.length; i++) {
+    const element = attributesFields[i];
+    if (element) {
+      console.log(Boolean(element?.placeholder_value), Boolean(element?.value));
+      if (!(Boolean(element?.placeholder_value) && Boolean(element?.value))) {
+        toast.error(
+          `${element?.placeholder_value || ""} Attribute is required`
+        );
+        return false;
+      }
+    }
+  }
+  return true;
+};
+
+export { YUP_CREATE_NFT_VALIDATION, validateDynamicAttributesForm };
