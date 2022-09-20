@@ -1,27 +1,24 @@
 import { UploadMetadataInput } from "@metaplex-foundation/js";
-import { useConnection } from "@solana/wallet-adapter-react";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import * as yup from "yup";
 import { useMetaplex } from "../../../hooks/useMetaplex";
 import { parsePhantomErrors } from "../../../services/error.service";
 import { createNFT } from "../../../services/metaplex.service";
+import { DYNAMIC_ATTRIBUTE_INITIAL_FORM } from "../../../utils/componentConstants";
+import {
+  validateDynamicAttributesForm,
+  YUP_CREATE_NFT_VALIDATION,
+} from "../../../utils/validations";
 
 const useNft = () => {
   const { metaplex } = useMetaplex();
-  const { connection } = useConnection();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [newData, setNewData] = useState([
-    {
-      trait_type: "",
-      placeholder_trait_type: "Trait Name",
-      placeholder_value: "Trait Value",
-      id: 0,
-      value: "",
-    },
-  ]);
+  const [newData, setNewData] = useState(
+    DYNAMIC_ATTRIBUTE_INITIAL_FORM.map(a => ({ ...a }))
+  );
+
   const handleChange = (
     event: any,
     selectedInputItem: any,
@@ -32,49 +29,33 @@ const useNft = () => {
     cloneArray[index][fieldType] = event.target.value;
     setNewData(cloneArray);
   };
-  const formikSchema = yup.object({
-    name: yup
-      .string()
-      .required("* Name is required")
-      .min(6, "Min 6 Characters")
-      .max(40, "Characters cannot be above 40"),
-    symbol: yup.string().required("* Symbol is required"),
-    description: yup.string().required("* Description is required"),
-    files: yup.mixed().required("* Choose a File"),
-    url: yup.string(),
-    collectible: yup.string(),
-    identifiername: yup.string(),
-  });
 
   const formik = useFormik({
-    validationSchema: formikSchema,
+    validationSchema: YUP_CREATE_NFT_VALIDATION,
     initialValues: {
-      name: "",
-      symbol: "",
-      description: "",
+      name: "testss",
+      symbol: "TNFT",
+      description: "Test desc",
       files: null,
-      url: "",
+      url: "www.kryptomind.com",
       collectible: "",
       identifiername: "",
+      royality: 10,
     },
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       handleSubmitData(values);
     },
   });
-  const handleSubmitData = async (values: any) => {
-    for (let i = 0; i <= newData.length; i++) {
-      var element = newData[i];
-      if (element?.value === "") {
-        toast.error("Attribute is required");
-        return 0;
-      }
-    }
 
+  const handleSubmitData = async (values: any) => {
+    if (!validateDynamicAttributesForm(newData)) {
+      return;
+    }
+    setNewData(DYNAMIC_ATTRIBUTE_INITIAL_FORM.map(a => ({ ...a })));
     let attributes = newData.map((item: any) => ({
       trait_type: item.trait_type,
       value: item.value,
     }));
-    console.log(values.url);
     let metadata: UploadMetadataInput = {
       name: values.name,
       description: values.description,
@@ -82,6 +63,7 @@ const useNft = () => {
       files: values.files,
       external_url: values.url,
       attributes,
+      seller_fee_basis_points: values.royality * 100,
     };
 
     try {
@@ -92,6 +74,7 @@ const useNft = () => {
         metadata: metadata,
       });
       formik.resetForm();
+      setNewData(DYNAMIC_ATTRIBUTE_INITIAL_FORM);
       setLoading(false);
     } catch (error: any) {
       toast.dismiss();

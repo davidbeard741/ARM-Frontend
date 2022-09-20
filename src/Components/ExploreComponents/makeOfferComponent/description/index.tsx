@@ -3,40 +3,28 @@ import styles from "./description.module.scss";
 import { RiHeart2Line } from "react-icons/ri";
 import { RiHeart2Fill } from "react-icons/ri";
 import DropDownTab from "../../../_common/DropDownTab";
-let data = [
-  {
-    title: "Contract Address",
-    dec: "12345678asdfghertyu567",
-  },
-  {
-    title: "Token ID",
-    dec: "123456789asdfghj123456789",
-  },
-  {
-    title: "Token Standard",
-    dec: "",
-  },
-  {
-    title: "Blockchain",
-    dec: "Solana",
-  },
-];
-const Description = () => {
+
+type Props = {
+  attributes: any;
+  imageURI: string;
+  description: string;
+  tokenID: string;
+  creatorEarnings: number;
+};
+
+const Description = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
-          <img
-            src={"https://d3bfm8su4pz02o.cloudfront.net/images/NFT1.svg"}
-            alt=""
-          />
+          <img src={props.imageURI} alt="" />
           <div className={styles.imgIcons}>
-            <div className={styles.leftWrapper}>
+            {/* <div className={styles.leftWrapper}>
               <div className={styles.icon}>
                 <RiHeart2Fill />
               </div>
               1,12
-            </div>
+            </div> */}
             <div className={styles.rightWrapper}>
               <img
                 src={"https://d3bfm8su4pz02o.cloudfront.net/icons/NFTIcon.svg"}
@@ -48,35 +36,47 @@ const Description = () => {
         <div className={styles.decWrapper}>
           <div className={styles.header}>Description</div>
           <div className={styles.textWrapper}>
-            <label>By Avrill15</label>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
-              sagittis, nisl porttitor ante et viverra. Urna, vitae in quis
-              tristique pellentesque congue. Neque netus tortor donec faucibus.
-              Viverra pellentesque eu condimentum velit porttitor ornare.rttitor
-              ante et viverra. Urna, vitae in quis tristique pellentesque
-              congue. Neque netus tortor donec faucibus. Viverra pellentesque eu
-              condimentum velit porttitor ornare.
-            </p>
+            {/* <label>By Avrill15</label> */}
+            <p>{props.description}</p>
           </div>
           <div className={styles.contractClass}>
-            {data.map((item) => (
-              <div className={styles.textWrapper}>
-                <label>{item.title}</label>
-                <span>{item.dec}</span>
-              </div>
-            ))}
+            <div className={styles.textWrapper}>
+              <label>Contract Address</label>
+              <span>TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA</span>
+            </div>
+            <div className={styles.textWrapper}>
+              <label>Token ID</label>
+              <span>{props.tokenID}</span>
+            </div>
+            <div className={styles.textWrapper}>
+              <label>Token Standard</label>
+              <span>Metaplex</span>
+            </div>
+            <div className={styles.textWrapper}>
+              <label>Blockchain</label>
+              <span>Solana</span>
+            </div>
+            <div className={styles.textWrapper}>
+              <label>Metadata</label>
+              <span>Arweave</span>
+            </div>
+            <div className={styles.textWrapper}>
+              <label>Creator Earnings</label>
+              <span>{props.creatorEarnings}%</span>
+            </div>
           </div>
         </div>
         <div className={styles.properties}>
           <div className={styles.cardWrapper}>
-            {[...Array(6)].map((item) => (
-              <div className={styles.card}>
-                <label>Enviroment</label>
-                <span>Forest</span>
-                <p>20% have this trait</p>
-              </div>
-            ))}
+            {props.attributes
+              ? props.attributes.map((item: any) => (
+                  <div className={styles.card}>
+                    <label>{item.trait_type}</label>
+                    <span></span>
+                    <p>{item.value}</p>
+                  </div>
+                ))
+              : null}
           </div>
         </div>
       </div>
