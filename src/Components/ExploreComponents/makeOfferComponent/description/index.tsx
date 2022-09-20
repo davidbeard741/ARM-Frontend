@@ -69,17 +69,15 @@ const Description = () => {
           </div>
         </div>
         <div className={styles.properties}>
-          <DropDownTab style={{ minHeight: "260px" }} title="Properties">
-            <div className={styles.cardWrapper}>
-              {[...Array(6)].map((item) => (
-                <div className={styles.card}>
-                  <label>Enviroment</label>
-                  <span>Forest</span>
-                  <p>20% have this trait</p>
-                </div>
-              ))}
-            </div>
-          </DropDownTab>
+          <div className={styles.cardWrapper}>
+            {[...Array(6)].map((item) => (
+              <div className={styles.card}>
+                <label>Enviroment</label>
+                <span>Forest</span>
+                <p>20% have this trait</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

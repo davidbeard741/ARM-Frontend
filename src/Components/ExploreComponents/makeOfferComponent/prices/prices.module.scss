@@ -15,6 +15,9 @@
         font-weight: bold;
         font-size: 35px;
         color: #000000;
+        @media screen and (max-width: 1024px) {
+          font-size: 20px;
+        }
       }
 
       p {
@@ -22,6 +25,9 @@
         font-size: 18px;
         color: #000000;
         margin: 0;
+        @media screen and (max-width: 1024px) {
+          font-size: 16px;
+        }
 
         span {
           color: #ffb718;
@@ -40,6 +46,9 @@
         background: #ffb718;
         border-radius: 9px 9px 0 0;
         height: 40px;
+        @media screen and (max-width: 1024px) {
+          font-size: 14px;
+        }
       }
 
       .price {
@@ -58,6 +67,9 @@
           font-size: 18px;
           line-height: 27px;
           color: #23262f;
+          @media screen and (max-width: 1024px) {
+            font-size: 16px;
+          }
         }
 
         p {
@@ -71,11 +83,18 @@
           column-gap: 1rem;
           justify-content: flex-start;
           align-items: center;
-
+          @media screen and (max-width: 1024px) {
+            font-size: 18px;
+            column-gap: 0.5rem;
+          }
           img {
             width: 30px;
             height: 30px;
             text-align: center;
+            @media screen and (max-width: 1024px) {
+              width: 18px;
+              height: 18px;
+            }
           }
 
           span {
@@ -86,6 +105,9 @@
             font-size: 20px;
             line-height: 34px;
             color: #454545;
+            @media screen and (max-width: 1024px) {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -97,6 +119,11 @@
         width: 100%;
         margin: 1.5rem 0;
         button {
+          @media screen and (max-width: 1024px) {
+            padding: 0.5rem 0;
+            font-size: 16px;
+            width: 100%;
+          }
           width: 200px;
           cursor: pointer;
           padding: 0.7rem 0;
@@ -119,7 +146,6 @@
 
     .dropDownWrapper {
       width: 100%;
-
       display: flex;
       flex-direction: column;
       row-gap: 3rem;
@@ -133,6 +159,7 @@
           font-weight: 400;
           font-size: 16px;
           color: #454545;
+          white-space: nowrap;
 
           th {
             font-weight: 400;
@@ -140,10 +167,16 @@
             color: #454545;
             height: 50px;
             border-bottom: 0.5px solid gray;
+            white-space: nowrap;
+            padding: 0 0.5rem;
+            box-sizing: border-box;
           }
 
           td {
+            white-space: nowrap;
+            box-sizing: border-box;
             height: 50px;
+            padding: 0 0.5rem;
             img {
               width: 20px;
             }
@@ -161,16 +194,38 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.4rem 1rem;
+        padding: 1rem 1rem 0 1rem;
         box-sizing: border-box;
+        @media screen and (max-width: 1024px) {
+          width: 100%;
+          flex-direction: column;
+          row-gap: 0.5rem;
+        }
         .dropDown {
-          width: 30%;
+          width: 20%;
+          @media screen and (max-width: 1024px) {
+            width: 100%;
+          }
         }
         .textArea {
+          display: flex;
+          flex-direction: column;
+          row-gap: 0.5rem;
+          @media screen and (max-width: 1024px) {
+            width: 100%;
+          }
           label {
+            font-weight: bold;
+            font-size: 12px;
           }
           p {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            display: flex;
+            column-gap: 0.5rem;
             img {
+              width: 14px;
             }
           }
         }
