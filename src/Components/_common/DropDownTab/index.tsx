@@ -14,13 +14,14 @@ const DropDownTab = (prop: Props) => {
         <div className={styles.wrapper}>
           <div className={styles.headerWrapper}>
             <div className={styles.leftWrapper}>{title}</div>
-            <div className={styles.rightWrapper}>
+            <div className={styles.rightWrapper}  onClick={() => setActive(!active)}> 
               <img
                 className={active ? styles.imgActive : styles.imgNotActive}
                 src={bottomImg}
                 alt=""
-                onClick={() => setActive(!active)}
+               
               />
+              
             </div>
           </div>
           {active ? <div className={styles.bottomWrapper}>{children}</div> : ""}
