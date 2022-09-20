@@ -5,6 +5,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useMetaplex } from "../../../hooks/useMetaplex";
+import { parsePhantomErrors } from "../../../services/error.service";
+import { createNFT } from "../../../services/metaplex.service";
 
 const useNft = () => {
   const { metaplex } = useMetaplex();
@@ -13,25 +15,23 @@ const useNft = () => {
   const [error, setError] = useState(false);
   const [newData, setNewData] = useState([
     {
-      name: "Name",
-      placeholder: "attributeName",
-      id: 1,
-      value: "",
-    },
-    {
-      name: "Value",
-      placeholder: "attributeValue",
-      id: 2,
+      trait_type: "",
+      placeholder_trait_type: "Trait Name",
+      placeholder_value: "Trait Value",
+      id: 0,
       value: "",
     },
   ]);
-  const handleChange = (event: any, id: number) => {
-    const index = newData.findIndex((item) => item.id === id);
+  const handleChange = (
+    event: any,
+    selectedInputItem: any,
+    fieldType: "trait_type" | "value"
+  ) => {
+    const index = newData.findIndex(item => item.id === selectedInputItem.id);
     let cloneArray = [...newData];
-    cloneArray[index].value = event.target.value;
+    cloneArray[index][fieldType] = event.target.value;
     setNewData(cloneArray);
   };
-
   const formikSchema = yup.object({
     name: yup
       .string()
@@ -69,29 +69,36 @@ const useNft = () => {
         return 0;
       }
     }
+
+    let attributes = newData.map((item: any) => ({
+      trait_type: item.trait_type,
+      value: item.value,
+    }));
+    console.log(values.url);
     let metadata: UploadMetadataInput = {
       name: values.name,
       description: values.description,
       symbol: values.symbol,
       files: values.files,
-      attribute: [...newData],
+      external_url: values.url,
+      attributes,
     };
-    console.log("metadata", metadata);
-    // try {
-    //   setLoading(true);
-    //   toast.success("Creating NFT, please wait...");
-    //   await createNFT({
-    //     metaplex: metaplex!,
-    //     metadata: metadata,
-    //   });
-    //   formik.resetForm();
-    //   setLoading(false);
-    // } catch (error: any) {
-    //   toast.dismiss();
-    //   console.log("Error while creating error:", error.message);
-    //   toast.error(parsePhantomErrors(error.message), {});
-    //   setLoading(false);
-    // }
+
+    try {
+      setLoading(true);
+      toast.success("Creating NFT, please wait...");
+      await createNFT({
+        metaplex: metaplex!,
+        metadata: metadata,
+      });
+      formik.resetForm();
+      setLoading(false);
+    } catch (error: any) {
+      toast.dismiss();
+      console.log("Error while creating error:", error.message);
+      toast.error(parsePhantomErrors(error.message), {});
+      setLoading(false);
+    }
   };
   return {
     formik,

@@ -38,7 +38,7 @@ function Input(Props: prop) {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.inputWrapper} style={style}>
-          {img && <img src={img} alt="" />}
+          {img && <img src={img} alt='' />}
           <input
             type={type}
             placeholder={placeholder}
@@ -50,7 +50,7 @@ function Input(Props: prop) {
           />
           {img2 && (
             <span onClick={imgOnClick}>
-              {search ? <FiSearch /> : <img src={img2} alt="" />}
+              {search ? <FiSearch /> : <img src={img2} alt='' />}
             </span>
           )}
         </div>
